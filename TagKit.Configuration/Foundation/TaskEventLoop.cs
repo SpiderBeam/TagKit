@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TagKit.Documents;
 using TagKit.Foundation;
 using TagKit.Foundation.Common;
 
@@ -17,7 +18,7 @@ namespace TagKit.Configuration.Foundation
         private readonly Dictionary<TaskPriority, Queue<TaskEventLoopEntry>> _queues;
         private TaskEventLoopEntry _current;
 
-        public TaskEventLoop()
+        public TaskEventLoop(IBrowsingContext context)
         {
             _queues = new Dictionary<TaskPriority, Queue<TaskEventLoopEntry>>();
             _current = null;
@@ -131,10 +132,10 @@ namespace TagKit.Configuration.Foundation
                 get
                 {
                     return _task != null &&
-                           _task.Status == TaskStatus.Running ||
+                           (_task.Status == TaskStatus.Running ||
                            _task.Status == TaskStatus.WaitingForActivation ||
                            _task.Status == TaskStatus.WaitingToRun ||
-                           _task.Status == TaskStatus.WaitingForChildrenToComplete;
+                           _task.Status == TaskStatus.WaitingForChildrenToComplete);
                 }
             }
 

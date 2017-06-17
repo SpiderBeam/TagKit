@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using TagKit.Foundation.Attributes;
 
 namespace TagKit.Foundation.Common
@@ -11,7 +8,7 @@ namespace TagKit.Foundation.Common
     /// <summary>
     /// Some methods for working with bare objects.
     /// </summary>
-    static class ObjectExtensions
+    public static class ObjectExtensions
     {
         /// <summary>
         /// Transforms the values of the object into a dictionary of strings.
@@ -34,6 +31,69 @@ namespace TagKit.Foundation.Common
             }
 
             return symbols;
+        }
+
+        /// <summary>
+        /// Gets an item from the enumerable by its index. Throws an exception
+        /// if the provided index is invalid.
+        /// </summary>
+        /// <typeparam name="T">The type of enumerable.</typeparam>
+        /// <param name="items">The items to iterate over.</param>
+        /// <param name="index">The index to look for.</param>
+        /// <returns>The item at the specified index.</returns>
+        public static T GetItemByIndex<T>(this IEnumerable<T> items, Int32 index)
+        {
+            if (index >= 0)
+            {
+                var i = 0;
+
+                foreach (var item in items)
+                {
+                    if (i++ == index)
+                    {
+                        return item;
+                    }
+                }
+            }
+
+            throw new ArgumentOutOfRangeException(nameof(index));
+        }
+
+        /// <summary>
+        /// Returns the concatenation of the provided enumerable with the
+        /// specified element. The item is added to the beginning.
+        /// </summary>
+        /// <typeparam name="T">The type of the enumeration.</typeparam>
+        /// <param name="items">The items.</param>
+        /// <param name="element">The item to concat.</param>
+        /// <returns>The new enumerable.</returns>
+        public static IEnumerable<T> Concat<T>(this IEnumerable<T> items, T element)
+        {
+            yield return element;
+
+            foreach (var item in items)
+            {
+                yield return item;
+            }
+        }
+
+        /// <summary>
+        /// Returns the removal of the specified element from the provided
+        /// enumerable.
+        /// </summary>
+        /// <typeparam name="T">The type of the enumeration.</typeparam>
+        /// <param name="items">The items.</param>
+        /// <param name="element">The item to remove.</param>
+        /// <returns>The new enumerable.</returns>
+        public static IEnumerable<T> Except<T>(this IEnumerable<T> items, T element)
+        {
+            foreach (var item in items)
+            {
+                if (!Object.ReferenceEquals(item, element))
+                {
+                    yield return item;
+                }
+            }
         }
 
         /// <summary>

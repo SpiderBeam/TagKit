@@ -23,22 +23,21 @@ namespace TagKit.Configuration
 
         private static readonly Object[] standardServices = new Object[]
         {
-            Factory.Events,
-            Factory.BrowsingContext,
-            Factory.Service,
-            //Factory.AttributeSelector,
-            //Factory.InputTypes,
-            //Factory.LinkRelations,
-            //Factory.MediaFeatures,
-            //Factory.Properties,
-            //Factory.PseudoClassSelector,
-            //Factory.PseudoElementSelector,
-            //Factory.Document,
             //Factory.HtmlElements,
             //Factory.MathElements,
             //Factory.SvgElements,
-
-            new Func<IBrowsingContext, IEventLoop>(ctx => new TaskEventLoop()),
+            //Factory.Events,
+            //Factory.InputTypes,
+            //Factory.LinkRelations,
+            //Factory.AttributeSelector,
+            //Factory.PseudoClassSelector,
+            //Factory.PseudoElementSelector,
+            //Factory.Document,
+            //Factory.Observer,
+            //new Func<IBrowsingContext, ICssSelectorParser>(ctx => new CssSelectorParser(ctx)),
+            //new Func<IBrowsingContext, IHtmlParser>(ctx => new HtmlParser(ctx)),
+            //new Func<IBrowsingContext, IXmlParser>(ctx => new XmlParser(ctx)),
+            new Func<IBrowsingContext, IEventLoop>(ctx => new TaskEventLoop(ctx)),
         };
 
         /// <summary>

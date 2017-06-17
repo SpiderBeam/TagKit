@@ -1,4 +1,6 @@
-﻿using TagKit.Documents.Events;
+﻿using System;
+using System.Collections.Generic;
+using TagKit.Documents.Events;
 using TagKit.Documents.Net;
 using TagKit.Documents.Nodes;
 using TagKit.Documents.Nodes.Browser;
@@ -31,16 +33,6 @@ namespace TagKit.Documents
         /// Gets the sandboxing flag of the context.
         /// </summary>
         Sandboxes Security { get; }
-        //Seam:Configuration
-        /// <summary>
-        /// Gets the configuration for the browsing context.
-        /// </summary>
-        IConfiguration Configuration { get; }
-        //Seam:DocumentLoader
-        /// <summary>
-        /// Gets the assigned document loader, if any.
-        /// </summary>
-        IDocumentLoader Loader { get; }
 
         /// <summary>
         /// Gets the parent of the current context, if any. If a parent is
@@ -57,28 +49,33 @@ namespace TagKit.Documents
         IDocument Creator { get; }
 
         /// <summary>
-        /// Fired when a parser is starting.
+        /// Gets an instance of the given service.
         /// </summary>
-        event DomEventHandler Parsing;
+        /// <typeparam name="T">The type of service to resolve.</typeparam>
+        /// <returns>The instance of the service or null.</returns>
+        T GetService<T>() where T : class;
 
         /// <summary>
-        /// Fired when a parser is finished.
+        /// Gets all registered instances of the given service.
         /// </summary>
-        event DomEventHandler Parsed;
+        /// <typeparam name="T">The type of service to resolve.</typeparam>
+        /// <returns>An enumerable with all service instances.</returns>
+        IEnumerable<T> GetServices<T>() where T : class;
 
         /// <summary>
-        /// Fired when a parse error is encountered.
+        /// Creates a new browsing context with the given name, instructed by
+        /// the specified document.
         /// </summary>
-        event DomEventHandler ParseError;
+        /// <param name="name">The name of the new context.</param>
+        /// <param name="security">The sandboxing flag to use.</param>
+        /// <returns>The created browsing context.</returns>
+        IBrowsingContext CreateChild(String name, Sandboxes security);
 
         /// <summary>
-        /// Fired when a requester is starting.
+        /// Tries to find a browsing context with the given name.
         /// </summary>
-        event DomEventHandler Requesting;
-
-        /// <summary>
-        /// Fired when a requester is finished.
-        /// </summary>
-        event DomEventHandler Requested;
+        /// <param name="name">The name of the context.</param>
+        /// <returns>A context with the name, otherwise null.</returns>
+        IBrowsingContext FindChild(String name);
     }
 }

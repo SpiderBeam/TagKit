@@ -6,102 +6,156 @@ using System.Text;
 using System.Threading.Tasks;
 using TagKit.Configuration.Services;
 using TagKit.Documents;
+using TagKit.Foundation.Common;
 using TagKit.Foundation.Documents;
 
 namespace TagKit.Configuration
 {
     /// <summary>
-    /// Represents a helper to construct objects with externally defined
-    /// classes and libraries.
+    /// A set of useful extensions for Configuration (or derived) objects.
     /// </summary>
-    static class ConfigurationExtensions
+    public static class ConfigurationExtensions
     {
-        #region Services
+        #region General
 
-        public static TFactory GetFactory<TFactory>(this IConfiguration configuration)
+        /// <summary>
+        /// Returns a new configuration that includes the given service.
+        /// </summary>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <param name="service">The service to register.</param>
+        /// <returns>The new instance with the service.</returns>
+        public static IConfiguration With(this IConfiguration configuration, Object service)
         {
-            return configuration.GetServices<TFactory>().Single();
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+
+            return new Configuration(configuration.Services.Concat(service));
         }
 
-        public static TProvider GetProvider<TProvider>(this IConfiguration configuration)
+        /// <summary>
+        /// Returns a new configuration that includes only the given service,
+        /// excluding other instances or instance creators for the same service.
+        /// </summary>
+        /// <typeparam name="TService">The service to include exclusively.</typeparam>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <param name="service">The service to include.</param>
+        /// <returns>The new instance with only the given service.</returns>
+        public static IConfiguration WithOnly<TService>(this IConfiguration configuration, TService service)
         {
-            return configuration.GetServices<TProvider>().SingleOrDefault();
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+
+            return configuration.Without<TService>().With(service);
         }
 
-        public static TService GetService<TService>(this IConfiguration configuration)
+        /// <summary>
+        /// Returns a new configuration that includes only the given service
+        /// creator, excluding other instances or instance creators for the same
+        /// service.
+        /// </summary>
+        /// <typeparam name="TService">The service to include exclusively.</typeparam>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <param name="creator">The service creator to include.</param>
+        /// <returns>The new instance with only the given service.</returns>
+        public static IConfiguration WithOnly<TService>(this IConfiguration configuration, Func<IBrowsingContext, TService> creator)
         {
-            return configuration.GetServices<TService>().FirstOrDefault();
+            if (creator == null)
+                throw new ArgumentNullException(nameof(creator));
+
+            return configuration.Without<TService>().With(creator);
         }
 
-        public static IEnumerable<TService> GetServices<TService>(this IConfiguration configuration)
+        /// <summary>
+        /// Returns a new configuration that excludes the given service.
+        /// </summary>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <param name="service">The service to unregister.</param>
+        /// <returns>The new instance without the service.</returns>
+        public static IConfiguration Without(this IConfiguration configuration, Object service)
         {
-            return configuration.Services.OfType<TService>();
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+
+            return new Configuration(configuration.Services.Except(service));
         }
 
-        //public static IResourceService<TResource> GetResourceService<TResource>(this IConfiguration configuration, String type)
-        //    where TResource : IResourceInfo
-        //{
-        //    var services = configuration.GetServices<IResourceService<TResource>>();
-
-        //    foreach (var service in services)
-        //    {
-        //        if (service.SupportsType(type))
-        //        {
-        //            return service;
-        //        }
-        //    }
-
-        //    return default(IResourceService<TResource>);
-        //}
-
-        #endregion
-        #region Context
-
-        public static IBrowsingContext NewContext(this IConfiguration configuration, Sandboxes security = Sandboxes.None)
+        /// <summary>
+        /// Returns a new configuration that includes the given services.
+        /// </summary>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <param name="services">The services to register.</param>
+        /// <returns>The new instance with the services.</returns>
+        public static IConfiguration With(this IConfiguration configuration, IEnumerable<Object> services)
         {
-            var factory = configuration.GetFactory<IContextFactory>();
-            return factory.Create(configuration, security);
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+
+            if (services == null)
+                throw new ArgumentNullException(nameof(services));
+
+            return new Configuration(services.Concat(configuration.Services));
         }
 
-        public static IBrowsingContext FindContext(this IConfiguration configuration, String name)
+        /// <summary>
+        /// Returns a new configuration that excludes the given services.
+        /// </summary>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <param name="services">The services to unregister.</param>
+        /// <returns>The new instance without the services.</returns>
+        public static IConfiguration Without(this IConfiguration configuration, IEnumerable<Object> services)
         {
-            var factory = configuration.GetFactory<IContextFactory>();
-            return factory.Find(name);
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+
+            if (services == null)
+                throw new ArgumentNullException(nameof(services));
+
+            return new Configuration(configuration.Services.Except(services));
         }
 
-        #endregion
-        #region Encoding
-
-        public static Encoding DefaultEncoding(this IConfiguration configuration)
+        /// <summary>
+        /// Returns a new configuration that includes the given service creator.
+        /// </summary>
+        /// <typeparam name="TService">The type of service to create.</typeparam>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <param name="creator">The creator to register.</param>
+        /// <returns>The new instance with the services.</returns>
+        public static IConfiguration With<TService>(this IConfiguration configuration, Func<IBrowsingContext, TService> creator)
         {
-            var provider = configuration.GetProvider<IEncodingProvider>();
-            var locale = configuration.GetLanguage();
-            return provider?.Suggest(locale) ?? Encoding.UTF8;
+            if (creator == null)
+                throw new ArgumentNullException(nameof(creator));
+
+            return configuration.With((Object)creator);
         }
 
-        #endregion
-        #region Languages
-
-        public static CultureInfo GetCulture(this IConfiguration configuration)
+        /// <summary>
+        /// Returns a new configuration that excludes the given service creator.
+        /// </summary>
+        /// <typeparam name="TService">The type of service to remove.</typeparam>
+        /// <param name="configuration">The configuration to extend.</param>
+        /// <returns>The new instance without the services.</returns>
+        public static IConfiguration Without<TService>(this IConfiguration configuration)
         {
-            return configuration.GetService<CultureInfo>() ?? CultureInfo.CurrentUICulture;
+            var items = configuration.Services.OfType<TService>();
+            var creators = configuration.Services.OfType<Func<IBrowsingContext, TService>>();
+            return configuration.Without(items).Without(creators);
         }
 
-        public static CultureInfo GetCultureFromLanguage(this IConfiguration configuration, String language)
+        /// <summary>
+        /// Checks if the configuration holds any references to the given service.
+        /// </summary>
+        /// <typeparam name="TService">The type of service to check for.</typeparam>
+        /// <param name="configuration">The configuration to examine.</param>
+        /// <returns>True if any service / creators are found, otherwise false.</returns>
+        public static Boolean Has<TService>(this IConfiguration configuration)
         {
-            try
-            {
-                return new CultureInfo(language);
-            }
-            catch (CultureNotFoundException)
-            {
-                return configuration.GetCulture();
-            }
-        }
-
-        public static String GetLanguage(this IConfiguration configuration)
-        {
-            return configuration.GetCulture().Name;
+            return configuration.Services.OfType<TService>().Any() || configuration.Services.OfType<Func<IBrowsingContext, TService>>().Any();
         }
 
         #endregion

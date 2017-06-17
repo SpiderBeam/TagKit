@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagKit.Markup", "TagKit.Mar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagKit.Configuration.Tests", "TagKit.Configuration.Tests\TagKit.Configuration.Tests.csproj", "{F79FBC35-894C-48F5-B4F0-90A7F2C7670F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagKit.Css", "TagKit.Css\TagKit.Css.csproj", "{8D32062F-4BD3-46A4-88CB-9B1BD6476D8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F79FBC35-894C-48F5-B4F0-90A7F2C7670F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F79FBC35-894C-48F5-B4F0-90A7F2C7670F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F79FBC35-894C-48F5-B4F0-90A7F2C7670F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D32062F-4BD3-46A4-88CB-9B1BD6476D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D32062F-4BD3-46A4-88CB-9B1BD6476D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D32062F-4BD3-46A4-88CB-9B1BD6476D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D32062F-4BD3-46A4-88CB-9B1BD6476D8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

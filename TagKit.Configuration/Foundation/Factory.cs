@@ -7,26 +7,6 @@ namespace TagKit.Configuration.Foundation
     /// </summary>
     static class Factory
     {
-        /// <summary>
-        /// The DOM events factory.
-        /// </summary>
-        public static readonly EventFactory Events = new EventFactory();
-        
-        /// <summary>
-        /// The browsing context factory.
-        /// </summary>
-        public static readonly ContextFactory BrowsingContext = new ContextFactory();
-
-        /// <summary>
-        /// The service factory.
-        /// </summary>
-        public static readonly ServiceFactory Service = new ServiceFactory();
-
-        ///// <summary>
-        ///// The document factory.
-        ///// </summary>
-        //public static readonly DocumentFactory Document = new DocumentFactory();
-
         ///// <summary>
         ///// The HTML element factory.
         ///// </summary>
@@ -42,41 +22,44 @@ namespace TagKit.Configuration.Foundation
         ///// </summary>
         //public static readonly SvgElementFactory SvgElements = new SvgElementFactory();
 
-
         ///// <summary>
-        ///// The CSS property factory.
+        ///// The DOM events factory.
         ///// </summary>
-        //public static readonly CssPropertyFactory Properties = new CssPropertyFactory();
+        //public static readonly DefaultEventFactory Events = new DefaultEventFactory();
 
         ///// <summary>
         ///// The HTML input type provider factory.
         ///// </summary>
-        //public static readonly InputTypeFactory InputTypes = new InputTypeFactory();
-
-        ///// <summary>
-        ///// The CSS media feature factory.
-        ///// </summary>
-        //public static readonly MediaFeatureFactory MediaFeatures = new MediaFeatureFactory();
+        //public static readonly DefaultInputTypeFactory InputTypes = new DefaultInputTypeFactory();
 
         ///// <summary>
         ///// The CSS attribute selector factory.
         ///// </summary>
-        //public static readonly AttributeSelectorFactory AttributeSelector = new AttributeSelectorFactory();
+        //public static readonly DefaultAttributeSelectorFactory AttributeSelector = new DefaultAttributeSelectorFactory();
 
         ///// <summary>
         ///// The CSS pseudo element selector factory.
         ///// </summary>
-        //public static readonly PseudoElementSelectorFactory PseudoElementSelector = new PseudoElementSelectorFactory();
+        //public static readonly DefaultPseudoElementSelectorFactory PseudoElementSelector = new DefaultPseudoElementSelectorFactory();
 
         ///// <summary>
         ///// The CSS pseudo class selector factory.
         ///// </summary>
-        //public static readonly PseudoClassSelectorFactory PseudoClassSelector = new PseudoClassSelectorFactory();
+        //public static readonly DefaultPseudoClassSelectorFactory PseudoClassSelector = new DefaultPseudoClassSelectorFactory();
 
         ///// <summary>
         ///// The link rel type factory.
         ///// </summary>
-        //public static readonly LinkRelationFactory LinkRelations = new LinkRelationFactory();
+        //public static readonly DefaultLinkRelationFactory LinkRelations = new DefaultLinkRelationFactory();
 
+        ///// <summary>
+        ///// The document factory.
+        ///// </summary>
+        //public static readonly DefaultDocumentFactory Document = new DefaultDocumentFactory();
+
+        ///// <summary>
+        ///// The attribute observer.
+        ///// </summary>
+        //public static readonly DefaultAttributeObserver Observer = new DefaultAttributeObserver();
     }
 }

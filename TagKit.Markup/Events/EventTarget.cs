@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TagKit.Documents.Events;
 using TagKit.Foundation.Documents;
 using TagKit.Foundation.Text;
 
-namespace TagKit.Markup
+namespace TagKit.Markup.Events
 {
     /// <summary>
     /// Event target base of all DOM nodes.
