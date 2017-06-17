@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
+using TagKit.Services.Configuration;
 
 namespace TagKit.Configuration.Tests
 {

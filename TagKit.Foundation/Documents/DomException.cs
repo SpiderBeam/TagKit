@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TagKit.Foundation.Common;
 
 namespace TagKit.Foundation.Documents
@@ -23,6 +19,16 @@ namespace TagKit.Foundation.Documents
         {
             Code = (Int32)code;
             Name = code.ToString();
+        }
+
+        /// <summary>
+        /// Creates a new DOMException with a custom message.
+        /// </summary>
+        /// <param name="message">The message to transport.</param>
+        public DomException(String message)
+        {
+            Code = 0;
+            Name = message;
         }
 
         #endregion

@@ -29,7 +29,7 @@ namespace TagKit.Documents.Net.Html.Submitters.Json
 
         public override String ToString()
         {
-            var sb = StringBuilderPool.NewStringBuilder().Append(Symbols.CurlyBracketOpen);
+            var sb = StringBuilderPool.Obtain().Append(Symbols.CurlyBracketOpen);
             var needsComma = false;
 
             foreach (var property in _properties)

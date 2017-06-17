@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TagKit.Configuration.Foundation;
 using TagKit.Documents;
 using TagKit.Foundation;

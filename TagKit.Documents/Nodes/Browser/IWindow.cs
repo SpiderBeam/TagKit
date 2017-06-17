@@ -1,7 +1,6 @@
 ﻿using System;
 using TagKit.Documents.Events;
 using TagKit.Documents.Nodes.Browser.Navigator;
-using TagKit.Documents.Nodes.Css;
 using TagKit.Foundation.Attributes;
 
 namespace TagKit.Documents.Nodes.Browser
@@ -13,19 +12,6 @@ namespace TagKit.Documents.Nodes.Browser
     [DomName("Window")]
     public interface IWindow : IEventTarget, IGlobalEventHandlers, IWindowEventHandlers, IWindowTimers
     {
-        /// <summary>
-        /// Gives the values of all the CSS properties of an element after
-        /// applying the active stylesheets and resolving any basic computation
-        /// those values may contain.
-        /// </summary>
-        /// <param name="element">
-        /// The element to compute the styles for.
-        /// </param>
-        /// <param name="pseudo">The optional pseudo selector to use.</param>
-        /// <returns>The style declaration describing the element.</returns>
-        [DomName("getComputedStyle")]
-        ICssStyleDeclaration GetComputedStyle(IElement element, String pseudo = null);
-
         /// <summary>
         /// Gets a reference to the document that the window contains.
         /// </summary>
@@ -165,14 +151,5 @@ namespace TagKit.Documents.Nodes.Browser
         /// </summary>
         [DomName("history")]
         IHistory History { get; }
-
-        /// <summary>
-        /// Creates a new MediaQueryList object representing the parsed results
-        /// of the specified media query string.
-        /// </summary>
-        /// <param name="media">The query string.</param>
-        /// <returns>The MediaQueryList instance.</returns>
-        [DomName("matchMedia")]
-        IMediaQueryList MatchMedia(String media);
     }
 }

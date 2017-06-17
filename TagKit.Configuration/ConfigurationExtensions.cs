@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TagKit.Configuration.Services;
 using TagKit.Documents;
 using TagKit.Foundation.Common;
-using TagKit.Foundation.Documents;
 
 namespace TagKit.Configuration
 {

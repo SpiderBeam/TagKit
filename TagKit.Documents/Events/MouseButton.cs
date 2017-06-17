@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TagKit.Documents.Events
+﻿namespace TagKit.Documents.Events
 {
     /// <summary>
     /// All possible mouse button values that may appear in UI events.

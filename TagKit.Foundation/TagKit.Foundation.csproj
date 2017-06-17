@@ -59,7 +59,9 @@
     <Compile Include="Attributes\DomNameAttribute.cs" />
     <Compile Include="Attributes\DomNoInterfaceObjectAttribute.cs" />
     <Compile Include="Attributes\DomPutForwardsAttribute.cs" />
+    <Compile Include="BaseTokenizer.cs" />
     <Compile Include="Common\ObjectExtensions.cs" />
+    <Compile Include="Common\PortableExtensions.cs" />
     <Compile Include="Common\TaskEx.cs" />
     <Compile Include="Css\Color.cs" />
     <Compile Include="Css\Colors.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Documents\IDomException.cs" />
     <Compile Include="Documents\QuirksMode.cs" />
     <Compile Include="Documents\Sandboxes.cs" />
+    <Compile Include="EventLoopExtensions.cs" />
     <Compile Include="FunctionNames.cs" />
     <Compile Include="ICancellable.cs" />
     <Compile Include="IEventLoop.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="Text\TextRange.cs" />
     <Compile Include="Text\TextSource.cs" />
     <Compile Include="Text\TextView.cs" />
+    <Compile Include="Text\XmlExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />

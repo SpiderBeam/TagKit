@@ -68,7 +68,7 @@ namespace TagKit.Foundation.Text
             : this(encoding)
         {
             _baseStream = baseStream;
-            _content = StringBuilderPool.NewStringBuilder();
+            _content = StringBuilderPool.Obtain();
             _confidence = EncodingConfidence.Tentative;
         }
 

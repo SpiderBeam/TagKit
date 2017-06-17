@@ -132,7 +132,7 @@ namespace TagKit.Documents.Net
                 }
                 else if (ProtocolNames.IsOriginable(_scheme))
                 {
-                    var output = StringBuilderPool.NewStringBuilder();
+                    var output = StringBuilderPool.Obtain();
 
                     if (!String.IsNullOrEmpty(_host))
                     {
@@ -370,7 +370,7 @@ namespace TagKit.Documents.Net
         /// <returns>The string that equals the hyper reference.</returns>
         private String Serialize()
         {
-            var output = StringBuilderPool.NewStringBuilder();
+            var output = StringBuilderPool.Obtain();
 
             if (!String.IsNullOrEmpty(_scheme))
             {
@@ -515,7 +515,7 @@ namespace TagKit.Documents.Net
 
         private Boolean ParseSchemeData(String input, Int32 index)
         {
-            var buffer = StringBuilderPool.NewStringBuilder();
+            var buffer = StringBuilderPool.Obtain();
 
             while (index < input.Length)
             {
@@ -627,7 +627,7 @@ namespace TagKit.Documents.Net
         private Boolean ParseAuthority(String input, Int32 index)
         {
             var start = index;
-            var buffer = StringBuilderPool.NewStringBuilder();
+            var buffer = StringBuilderPool.Obtain();
             var user = default(String);
             var pass = default(String);
 
@@ -839,7 +839,7 @@ namespace TagKit.Documents.Net
             }
 
             var originalCount = paths.Count;
-            var buffer = StringBuilderPool.NewStringBuilder();
+            var buffer = StringBuilderPool.Obtain();
 
             while (index <= input.Length)
             {
@@ -944,7 +944,7 @@ namespace TagKit.Documents.Net
 
         private Boolean ParseQuery(String input, Int32 index, Boolean onlyQuery = false)
         {
-            var buffer = StringBuilderPool.NewStringBuilder();
+            var buffer = StringBuilderPool.Obtain();
             var fragment = false;
 
             while (index < input.Length)
@@ -975,7 +975,7 @@ namespace TagKit.Documents.Net
 
         private Boolean ParseFragment(String input, Int32 index)
         {
-            var buffer = StringBuilderPool.NewStringBuilder();
+            var buffer = StringBuilderPool.Obtain();
 
             while (index < input.Length)
             {

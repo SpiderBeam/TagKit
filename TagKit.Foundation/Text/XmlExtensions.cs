@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TagKit.Foundation.Text
 {
     /// <summary>
     /// Useful helpers for the XML parser.
     /// </summary>
-    static class XmlExtensions
+    public static class XmlExtensions
     {
         /// <summary>
         /// Determines if the given character is a legal character for the public id field:
@@ -63,10 +59,12 @@ namespace TagKit.Foundation.Text
         {
             if (str.Length > 0 && str[0].IsXmlNameStart())
             {
-                for (int i = 1; i < str.Length; i++)
+                for (var i = 1; i < str.Length; i++)
                 {
                     if (!str[i].IsXmlName())
+                    {
                         return false;
+                    }
                 }
 
                 return true;
@@ -89,10 +87,12 @@ namespace TagKit.Foundation.Text
 
             if (colon > 0 && str[0].IsXmlNameStart())
             {
-                for (int i = 1; i < colon; i++)
+                for (var i = 1; i < colon; i++)
                 {
                     if (!str[i].IsXmlName())
+                    {
                         return false;
+                    }
                 }
 
                 colon++;
@@ -100,10 +100,12 @@ namespace TagKit.Foundation.Text
 
             if (str.Length > colon && str[colon++].IsXmlNameStart())
             {
-                for (int i = colon; i < str.Length; i++)
+                for (var i = colon; i < str.Length; i++)
                 {
                     if (str[i] == Symbols.Colon || !str[i].IsXmlName())
+                    {
                         return false;
+                    }
                 }
 
                 return true;

@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using TagKit.Foundation.Attributes;
 using TagKit.Foundation.Css;
 using TagKit.Foundation.Documents;
@@ -670,7 +668,7 @@ namespace TagKit.Foundation.Text
         /// <returns>The CSS string representation.</returns>
         public static String CssString(this String value)
         {
-            var builder = StringBuilderPool.NewStringBuilder();
+            var builder = StringBuilderPool.Obtain();
             builder.Append(Symbols.DoubleQuote);
 
             if (!String.IsNullOrEmpty(value))
@@ -782,7 +780,7 @@ namespace TagKit.Foundation.Text
         /// <returns>The encoded value.</returns>
         public static String UrlEncode(this Byte[] content)
         {
-            var builder = StringBuilderPool.NewStringBuilder();
+            var builder = StringBuilderPool.Obtain();
 
             for (var i = 0; i < content.Length; i++)
             {
@@ -858,7 +856,7 @@ namespace TagKit.Foundation.Text
         {
             if (!String.IsNullOrEmpty(value))
             {
-                var builder = StringBuilderPool.NewStringBuilder();
+                var builder = StringBuilderPool.Obtain();
                 var isCR = false;
 
                 for (var i = 0; i < value.Length; i++)

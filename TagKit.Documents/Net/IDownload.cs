@@ -1,4 +1,4 @@
-﻿using TagKit.Documents.Nodes;
+﻿using System;
 using TagKit.Foundation;
 
 namespace TagKit.Documents.Net
@@ -16,6 +16,6 @@ namespace TagKit.Documents.Net
         /// <summary>
         /// Gets the originator of the download, if any.
         /// </summary>
-        INode Originator { get; }
+        Object Source { get; }
     }
 }

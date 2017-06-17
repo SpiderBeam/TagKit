@@ -1,5 +1,4 @@
 ﻿using System;
-using TagKit.Documents.Nodes.Css;
 using TagKit.Documents.Sets;
 using TagKit.Foundation.Attributes;
 
@@ -9,7 +8,7 @@ namespace TagKit.Documents.Nodes
     /// The Element interface represents an object within a DOM document. 
     /// </summary>
     [DomName("Element")]
-    public interface IElement : INode, IParentNode, IChildNode, INonDocumentTypeChildNode, IElementCssInlineStyle
+    public interface IElement : INode, IParentNode, IChildNode, INonDocumentTypeChildNode
     {
         /// <summary>
         /// Gets the namespace prefix of this element.
@@ -231,16 +230,6 @@ namespace TagKit.Documents.Nodes
         /// </summary>
         [DomName("tagName")]
         String TagName { get; }
-
-        /// <summary>
-        /// Creates a pseudo element for the current element.
-        /// </summary>
-        /// <param name="pseudoElement">
-        /// The element to create (e.g. ::after).
-        /// </param>
-        /// <returns>The created element or null, if not possible.</returns>
-        [DomName("pseudo")]
-        IPseudoElement Pseudo(String pseudoElement);
 
         /// <summary>
         /// Creates a new shadow root for the current element, if there is none

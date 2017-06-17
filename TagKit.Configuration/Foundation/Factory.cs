@@ -1,6 +1,4 @@
-﻿using TagKit.Configuration.Services.Default;
-
-namespace TagKit.Configuration.Foundation
+﻿namespace TagKit.Configuration.Foundation
 {
     /// <summary>
     /// Bundles the available factories.

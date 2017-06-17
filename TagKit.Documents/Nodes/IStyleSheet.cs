@@ -1,6 +1,7 @@
 ﻿using System;
 using TagKit.Documents.Nodes.Css;
 using TagKit.Foundation.Attributes;
+using TagKit.Foundation.Text;
 
 namespace TagKit.Documents.Nodes
 {
@@ -54,5 +55,28 @@ namespace TagKit.Documents.Nodes
         /// </summary>
         [DomName("disabled")]
         Boolean IsDisabled { get; set; }
+
+        /// <summary>
+        /// Gets the browsing context to use.
+        /// </summary>
+        IBrowsingContext Context { get; }
+
+        /// <summary>
+        /// Gets the underlying source.
+        /// </summary>
+        TextSource Source { get; }
+
+        /// <summary>
+        /// Sets the owner of the sheet.
+        /// </summary>
+        /// <param name="element">The owning element.</param>
+        void SetOwner(IElement element);
+
+        /// <summary>
+        /// Tries to find the matching namespace url for the given prefix.
+        /// </summary>
+        /// <param name="prefix">The prefix of the namespace to find.</param>
+        /// <returns>The namespace assigned to the prefix, if any.</returns>
+        String LocateNamespace(String prefix);
     }
 }

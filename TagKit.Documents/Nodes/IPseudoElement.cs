@@ -1,4 +1,5 @@
-﻿using TagKit.Documents.Nodes.Css;
+﻿using System;
+using TagKit.Documents.Nodes.Css;
 using TagKit.Foundation.Attributes;
 
 namespace TagKit.Documents.Nodes
@@ -9,7 +10,11 @@ namespace TagKit.Documents.Nodes
     /// </summary>
     [DomName("PseudoElement")]
     [DomNoInterfaceObject]
-    public interface IPseudoElement : IStyleUtilities
+    public interface IPseudoElement : IElement
     {
+        /// <summary>
+        /// Gets the assigned pseudo name (e.g., before).
+        /// </summary>
+        String PseudoName { get; }
     }
 }

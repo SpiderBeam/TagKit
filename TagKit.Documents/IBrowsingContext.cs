@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TagKit.Documents.Events;
-using TagKit.Documents.Net;
 using TagKit.Documents.Nodes;
 using TagKit.Documents.Nodes.Browser;
 using TagKit.Foundation.Documents;

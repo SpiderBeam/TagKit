@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\CustomEvent.cs" />
+    <Compile Include="Events\EventTarget.cs" />
+    <Compile Include="Events\EventTargetExtensions.cs" />
     <Compile Include="Events\FocusEvent.cs" />
+    <Compile Include="Events\InteractivityEvent.cs" />
     <Compile Include="Events\KeyboardEvent.cs" />
     <Compile Include="Events\KeyboardLocation.cs" />
     <Compile Include="Events\ModifierExtensions.cs" />
@@ -57,11 +60,16 @@
     <Compile Include="Events\UiEvent.cs" />
     <Compile Include="Events\WheelEvent.cs" />
     <Compile Include="Events\WheelMode.cs" />
+    <Compile Include="Net\ICookieProvider.cs" />
     <Compile Include="Net\IDocumentLoader.cs" />
     <Compile Include="Net\ILoader.cs" />
     <Compile Include="IBrowsingContext.cs" />
+    <Compile Include="Net\IResourceLoader.cs" />
+    <Compile Include="Net\ResourceRequest.cs" />
     <Compile Include="Net\ResponseExtensions.cs" />
     <Compile Include="Net\VirtualResponse.cs" />
+    <Compile Include="Nodes\Browser\ICommand.cs" />
+    <Compile Include="Nodes\Browser\IParser.cs" />
     <Compile Include="Nodes\Css\IMediaQueryList.cs" />
     <Compile Include="Events\DomEventHandler.cs" />
     <Compile Include="Events\Event.cs" />
@@ -70,6 +78,9 @@
     <Compile Include="Events\IEventTarget.cs" />
     <Compile Include="Events\IGlobalEventHandlers.cs" />
     <Compile Include="Events\IWindowEventHandlers.cs" />
+    <Compile Include="Nodes\Html\HtmlLinkElementExtensions.cs" />
+    <Compile Include="Nodes\Html\IHtmlLinkElement.cs" />
+    <Compile Include="Nodes\Html\LinkRelNames.cs" />
     <Compile Include="Nodes\Html\TagNames.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="IMarkupFormattable.cs" />
@@ -141,6 +152,7 @@
     <Compile Include="Nodes\Html\IStringMap.cs" />
     <Compile Include="Nodes\Browser\IUrlUtilities.cs" />
     <Compile Include="Nodes\IAttr.cs" />
+    <Compile Include="Nodes\IAttributeObserver.cs" />
     <Compile Include="Nodes\ICharacterData.cs" />
     <Compile Include="Nodes\IChildNode.cs" />
     <Compile Include="Nodes\IComment.cs" />
@@ -153,6 +165,9 @@
     <Compile Include="Nodes\IHtmlCollection.cs" />
     <Compile Include="Nodes\IImplementation.cs" />
     <Compile Include="Net\ILoadableElement.cs" />
+    <Compile Include="Nodes\ILinkImport.cs" />
+    <Compile Include="Nodes\ILinkStyle.cs" />
+    <Compile Include="Nodes\IMutationRecord.cs" />
     <Compile Include="Nodes\INamedNodeMap.cs" />
     <Compile Include="Nodes\INode.cs" />
     <Compile Include="Nodes\INodeList.cs" />
@@ -173,6 +188,7 @@
     <Compile Include="Ranges\IRange.cs" />
     <Compile Include="Ranges\RangePosition.cs" />
     <Compile Include="Ranges\RangeType.cs" />
+    <Compile Include="Sets\IBindable.cs" />
     <Compile Include="Sets\ISettableTokenList.cs" />
     <Compile Include="Sets\ITokenList.cs" />
     <Compile Include="Traversal\FilterResult.cs" />
