@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -40,19 +46,138 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\Accessors.cs" />
-    <Compile Include="Attributes\DomAccessorAttribute.cs" />
-    <Compile Include="Attributes\DomConstructorAttribute.cs" />
-    <Compile Include="Attributes\DomDescriptionAttribute.cs" />
-    <Compile Include="Attributes\DomExposedAttribute.cs" />
-    <Compile Include="Attributes\DomHistoricalAttribute.cs" />
-    <Compile Include="Attributes\DomInitDictAttribute.cs" />
-    <Compile Include="Attributes\DomLenientThisAttribute.cs" />
-    <Compile Include="Attributes\DomLiteralsAttribute.cs" />
-    <Compile Include="Attributes\DomNameAttribute.cs" />
-    <Compile Include="Attributes\DomNoInterfaceObjectAttribute.cs" />
-    <Compile Include="Attributes\DomPutForwardsAttribute.cs" />
+    <Compile Include="Net\IDocumentLoader.cs" />
+    <Compile Include="Net\ILoader.cs" />
+    <Compile Include="IBrowsingContext.cs" />
+    <Compile Include="Nodes\Css\IMediaQueryList.cs" />
+    <Compile Include="Events\DomEventHandler.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\EventFlags.cs" />
+    <Compile Include="Events\EventPhase.cs" />
+    <Compile Include="Events\IEventTarget.cs" />
+    <Compile Include="Events\IGlobalEventHandlers.cs" />
+    <Compile Include="Events\IWindowEventHandlers.cs" />
+    <Compile Include="Nodes\Html\TagNames.cs" />
+    <Compile Include="IConfiguration.cs" />
+    <Compile Include="IMarkupFormattable.cs" />
+    <Compile Include="IMarkupFormatter.cs" />
+    <Compile Include="IO\IBlob.cs" />
+    <Compile Include="IO\IFile.cs" />
+    <Compile Include="Net\DocumentRequest.cs" />
+    <Compile Include="Net\HeaderNames.cs" />
+    <Compile Include="Net\Html\FileDataSetEntry.cs" />
+    <Compile Include="Net\Html\FormDataSet.cs" />
+    <Compile Include="Net\Html\FormDataSetEntry.cs" />
+    <Compile Include="Net\Html\IFormDataSetVisitor.cs" />
+    <Compile Include="Net\Html\IFormSubmitter.cs" />
+    <Compile Include="Net\Html\InputTypeNames.cs" />
+    <Compile Include="Net\Html\Submitters\JsonFormDataSetVisitor.cs" />
+    <Compile Include="Net\Html\Submitters\Json\JsonArray.cs" />
+    <Compile Include="Net\Html\Submitters\Json\JsonElement.cs" />
+    <Compile Include="Net\Html\Submitters\Json\JsonObject.cs" />
+    <Compile Include="Net\Html\Submitters\Json\JsonStep.cs" />
+    <Compile Include="Net\Html\Submitters\Json\JsonValue.cs" />
+    <Compile Include="Net\Html\Submitters\MultipartFormDataSetVisitor.cs" />
+    <Compile Include="Net\Html\Submitters\PlaintextFormDataSetVisitor.cs" />
+    <Compile Include="Net\Html\Submitters\UrlEncodedFormDataSetVisitor.cs" />
+    <Compile Include="Net\Html\TextDataSetEntry.cs" />
+    <Compile Include="Net\HttpMethod.cs" />
+    <Compile Include="Net\ICancellable.cs" />
+    <Compile Include="Net\IDownload.cs" />
+    <Compile Include="Net\IResponse.cs" />
+    <Compile Include="Net\PortNumbers.cs" />
+    <Compile Include="Net\ProtocolNames.cs" />
+    <Compile Include="Net\Url.cs" />
+    <Compile Include="Nodes\AdjacentPosition.cs" />
+    <Compile Include="Nodes\Browser\IHistory.cs" />
+    <Compile Include="Nodes\Browser\IWindow.cs" />
+    <Compile Include="Nodes\Browser\IWindowTimers.cs" />
+    <Compile Include="Nodes\Browser\Navigator\INavigator.cs" />
+    <Compile Include="Nodes\Browser\Navigator\INavigatorContentUtilities.cs" />
+    <Compile Include="Nodes\Browser\Navigator\INavigatorId.cs" />
+    <Compile Include="Nodes\Browser\Navigator\INavigatorOnline.cs" />
+    <Compile Include="Nodes\Browser\Navigator\INavigatorStorageUtilities.cs" />
+    <Compile Include="Nodes\Css\CssRuleType.cs" />
+    <Compile Include="Nodes\Css\ICssMedium.cs" />
+    <Compile Include="Nodes\Css\ICssNode.cs" />
+    <Compile Include="Nodes\Css\ICssProperties.cs" />
+    <Compile Include="Nodes\Css\ICssProperty.cs" />
+    <Compile Include="Nodes\Css\ICssRule.cs" />
+    <Compile Include="Nodes\Css\ICssRuleCreator.cs" />
+    <Compile Include="Nodes\Css\ICssRuleList.cs" />
+    <Compile Include="Nodes\Css\ICssStyleDeclaration.cs" />
+    <Compile Include="Nodes\Css\ICssStyleSheet.cs" />
+    <Compile Include="Nodes\Css\IElementCssInlineStyle.cs" />
+    <Compile Include="Nodes\Css\IMediaFeature.cs" />
+    <Compile Include="Nodes\Css\IMediaList.cs" />
+    <Compile Include="IStyleFormattable.cs" />
+    <Compile Include="IStyleFormatter.cs" />
+    <Compile Include="Nodes\Css\IStyleUtilities.cs" />
+    <Compile Include="Nodes\Css\RenderDevice.cs" />
+    <Compile Include="Nodes\DocumentPositions.cs" />
+    <Compile Include="Nodes\DocumentReadyState.cs" />
+    <Compile Include="Nodes\Html\IHtmlAnchorElement.cs" />
+    <Compile Include="Nodes\Html\IHtmlElement.cs" />
+    <Compile Include="Nodes\Html\IHtmlEmbedElement.cs" />
+    <Compile Include="Nodes\Html\IHtmlFormControlsCollection.cs" />
+    <Compile Include="Nodes\Html\IHtmlFormElement.cs" />
+    <Compile Include="Nodes\Html\IHtmlHeadElement.cs" />
+    <Compile Include="Nodes\Html\IHtmlImageElement.cs" />
+    <Compile Include="Nodes\Html\IHtmlMenuElement.cs" />
+    <Compile Include="Nodes\Browser\ILocation.cs" />
+    <Compile Include="Nodes\Html\IHtmlScriptElement.cs" />
+    <Compile Include="Nodes\Html\IStringMap.cs" />
+    <Compile Include="Nodes\Browser\IUrlUtilities.cs" />
+    <Compile Include="Nodes\IAttr.cs" />
+    <Compile Include="Nodes\ICharacterData.cs" />
+    <Compile Include="Nodes\IChildNode.cs" />
+    <Compile Include="Nodes\IComment.cs" />
+    <Compile Include="Nodes\IDocument.cs" />
+    <Compile Include="Nodes\IDocumentFragment.cs" />
+    <Compile Include="Nodes\IDocumentStyle.cs" />
+    <Compile Include="Nodes\IDocumentType.cs" />
+    <Compile Include="Nodes\IElement.cs" />
+    <Compile Include="Nodes\IHtmlAllCollection.cs" />
+    <Compile Include="Nodes\IHtmlCollection.cs" />
+    <Compile Include="Nodes\IImplementation.cs" />
+    <Compile Include="Net\ILoadableElement.cs" />
+    <Compile Include="Nodes\INamedNodeMap.cs" />
+    <Compile Include="Nodes\INode.cs" />
+    <Compile Include="Nodes\INodeList.cs" />
+    <Compile Include="Nodes\INonDocumentTypeChildNode.cs" />
+    <Compile Include="Nodes\INonElementParentNode.cs" />
+    <Compile Include="Nodes\IParentNode.cs" />
+    <Compile Include="Nodes\IProcessingInstruction.cs" />
+    <Compile Include="Nodes\IPseudoElement.cs" />
+    <Compile Include="Nodes\IShadowRoot.cs" />
+    <Compile Include="Nodes\IStringList.cs" />
+    <Compile Include="Nodes\IStyleSheet.cs" />
+    <Compile Include="Nodes\IStyleSheetList.cs" />
+    <Compile Include="Nodes\IText.cs" />
+    <Compile Include="Nodes\NodeType.cs" />
+    <Compile Include="Nodes\ShadowRootMode.cs" />
+    <Compile Include="Nodes\Xml\IXmlDocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ranges\IRange.cs" />
+    <Compile Include="Ranges\RangePosition.cs" />
+    <Compile Include="Ranges\RangeType.cs" />
+    <Compile Include="Sets\ISettableTokenList.cs" />
+    <Compile Include="Sets\ITokenList.cs" />
+    <Compile Include="Traversal\FilterResult.cs" />
+    <Compile Include="Traversal\FilterSettings.cs" />
+    <Compile Include="Traversal\INodeIterator.cs" />
+    <Compile Include="Traversal\ITreeWalker.cs" />
+    <Compile Include="Traversal\NodeFilter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
+      <Project>{5036A7D7-49AB-4184-BD14-E1805C664A17}</Project>
+      <Name>TagKit.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Key.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
