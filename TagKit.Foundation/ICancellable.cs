@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace TagKit.Documents.Net
+namespace TagKit.Foundation
 {
     /// <summary>
     /// Represents a cancellable task with result.

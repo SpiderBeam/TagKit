@@ -46,6 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\CustomEvent.cs" />
+    <Compile Include="Events\FocusEvent.cs" />
+    <Compile Include="Events\KeyboardEvent.cs" />
+    <Compile Include="Events\KeyboardLocation.cs" />
+    <Compile Include="Events\ModifierExtensions.cs" />
+    <Compile Include="Events\MouseButton.cs" />
+    <Compile Include="Events\MouseButtons.cs" />
+    <Compile Include="Events\MouseEvent.cs" />
+    <Compile Include="Events\UiEvent.cs" />
+    <Compile Include="Events\WheelEvent.cs" />
+    <Compile Include="Events\WheelMode.cs" />
     <Compile Include="Net\IDocumentLoader.cs" />
     <Compile Include="Net\ILoader.cs" />
     <Compile Include="IBrowsingContext.cs" />
@@ -82,7 +93,6 @@
     <Compile Include="Net\Html\Submitters\UrlEncodedFormDataSetVisitor.cs" />
     <Compile Include="Net\Html\TextDataSetEntry.cs" />
     <Compile Include="Net\HttpMethod.cs" />
-    <Compile Include="Net\ICancellable.cs" />
     <Compile Include="Net\IDownload.cs" />
     <Compile Include="Net\IResponse.cs" />
     <Compile Include="Net\PortNumbers.cs" />

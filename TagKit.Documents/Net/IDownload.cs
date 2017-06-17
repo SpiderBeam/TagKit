@@ -1,4 +1,5 @@
 ﻿using TagKit.Documents.Nodes;
+using TagKit.Foundation;
 
 namespace TagKit.Documents.Net
 {

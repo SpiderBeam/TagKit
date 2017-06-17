@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5036A7D7-49AB-4184-BD14-E1805C664A17}</ProjectGuid>
+    <ProjectGuid>{04A35FC8-F68D-4016-BBD3-15E0F9D49FC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TagKit.Foundation</RootNamespace>
-    <AssemblyName>TagKit.Foundation</AssemblyName>
+    <RootNamespace>TagKit.Configuration</RootNamespace>
+    <AssemblyName>TagKit.Configuration</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,45 +46,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttributeNames.cs" />
-    <Compile Include="Attributes\Accessors.cs" />
-    <Compile Include="Attributes\DomAccessorAttribute.cs" />
-    <Compile Include="Attributes\DomConstructorAttribute.cs" />
-    <Compile Include="Attributes\DomDescriptionAttribute.cs" />
-    <Compile Include="Attributes\DomExposedAttribute.cs" />
-    <Compile Include="Attributes\DomHistoricalAttribute.cs" />
-    <Compile Include="Attributes\DomInitDictAttribute.cs" />
-    <Compile Include="Attributes\DomLenientThisAttribute.cs" />
-    <Compile Include="Attributes\DomLiteralsAttribute.cs" />
-    <Compile Include="Attributes\DomNameAttribute.cs" />
-    <Compile Include="Attributes\DomNoInterfaceObjectAttribute.cs" />
-    <Compile Include="Attributes\DomPutForwardsAttribute.cs" />
-    <Compile Include="Common\ObjectExtensions.cs" />
-    <Compile Include="Common\TaskEx.cs" />
-    <Compile Include="Css\Color.cs" />
-    <Compile Include="Css\Colors.cs" />
-    <Compile Include="Documents\DomError.cs" />
-    <Compile Include="Documents\DomException.cs" />
-    <Compile Include="Documents\IDomException.cs" />
-    <Compile Include="Documents\QuirksMode.cs" />
-    <Compile Include="Documents\Sandboxes.cs" />
-    <Compile Include="FunctionNames.cs" />
-    <Compile Include="ICancellable.cs" />
-    <Compile Include="IEventLoop.cs" />
-    <Compile Include="Keywords.cs" />
-    <Compile Include="MimeType.cs" />
-    <Compile Include="MimeTypeNames.cs" />
-    <Compile Include="StringBuilderPool.cs" />
+    <Compile Include="BrowsingContext.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="ConfigurationExtensions.cs" />
+    <Compile Include="ContextExtensions.cs" />
+    <Compile Include="Foundation\Factory.cs" />
+    <Compile Include="Foundation\TaskEventLoop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Symbols.cs" />
-    <Compile Include="TaskPriority.cs" />
-    <Compile Include="Text\CharExtensions.cs" />
-    <Compile Include="Text\StringExtensions.cs" />
-    <Compile Include="Text\TextEncoding.cs" />
-    <Compile Include="Text\TextPosition.cs" />
-    <Compile Include="Text\TextRange.cs" />
-    <Compile Include="Text\TextSource.cs" />
-    <Compile Include="Text\TextView.cs" />
+    <Compile Include="Services\Default\ContextFactory.cs" />
+    <Compile Include="Services\Default\EventFactory.cs" />
+    <Compile Include="Services\Default\ServiceFactory.cs" />
+    <Compile Include="Services\IContextFactory.cs" />
+    <Compile Include="Services\IEventFactory.cs" />
+    <Compile Include="Services\IServiceFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TagKit.Documents\TagKit.Documents.csproj">
+      <Project>{1ADE238A-25E3-4F8D-A0B5-04FE068CFD3A}</Project>
+      <Name>TagKit.Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
+      <Project>{5036A7D7-49AB-4184-BD14-E1805C664A17}</Project>
+      <Name>TagKit.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TagKit.Markup\TagKit.Markup.csproj">
+      <Project>{5edb633d-65db-4153-9c2b-2c93353ffe7b}</Project>
+      <Name>TagKit.Markup</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
