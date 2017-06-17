@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,41 @@ namespace TagKit.Configuration
         {
             var factory = configuration.GetFactory<IContextFactory>();
             return factory.Find(name);
+        }
+
+        #endregion
+        #region Encoding
+
+        public static Encoding DefaultEncoding(this IConfiguration configuration)
+        {
+            var provider = configuration.GetProvider<IEncodingProvider>();
+            var locale = configuration.GetLanguage();
+            return provider?.Suggest(locale) ?? Encoding.UTF8;
+        }
+
+        #endregion
+        #region Languages
+
+        public static CultureInfo GetCulture(this IConfiguration configuration)
+        {
+            return configuration.GetService<CultureInfo>() ?? CultureInfo.CurrentUICulture;
+        }
+
+        public static CultureInfo GetCultureFromLanguage(this IConfiguration configuration, String language)
+        {
+            try
+            {
+                return new CultureInfo(language);
+            }
+            catch (CultureNotFoundException)
+            {
+                return configuration.GetCulture();
+            }
+        }
+
+        public static String GetLanguage(this IConfiguration configuration)
+        {
+            return configuration.GetCulture().Name;
         }
 
         #endregion

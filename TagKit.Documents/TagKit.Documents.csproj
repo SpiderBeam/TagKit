@@ -60,6 +60,8 @@
     <Compile Include="Net\IDocumentLoader.cs" />
     <Compile Include="Net\ILoader.cs" />
     <Compile Include="IBrowsingContext.cs" />
+    <Compile Include="Net\ResponseExtensions.cs" />
+    <Compile Include="Net\VirtualResponse.cs" />
     <Compile Include="Nodes\Css\IMediaQueryList.cs" />
     <Compile Include="Events\DomEventHandler.cs" />
     <Compile Include="Events\Event.cs" />

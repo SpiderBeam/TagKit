@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrowsingContext.cs" />
+    <Compile Include="BrowsingContextExtensions.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ConfigurationExtensions.cs" />
     <Compile Include="ContextExtensions.cs" />
+    <Compile Include="Foundation\CreateDocumentOptions.cs" />
     <Compile Include="Foundation\Factory.cs" />
     <Compile Include="Foundation\TaskEventLoop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,6 +59,8 @@
     <Compile Include="Services\Default\EventFactory.cs" />
     <Compile Include="Services\Default\ServiceFactory.cs" />
     <Compile Include="Services\IContextFactory.cs" />
+    <Compile Include="Services\IDocumentFactory.cs" />
+    <Compile Include="Services\IEncodingProvider.cs" />
     <Compile Include="Services\IEventFactory.cs" />
     <Compile Include="Services\IServiceFactory.cs" />
   </ItemGroup>
