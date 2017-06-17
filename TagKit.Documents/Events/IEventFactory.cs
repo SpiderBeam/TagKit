@@ -1,7 +1,10 @@
 ﻿using System;
-using TagKit.Documents.Events;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace TagKit.Configuration.Services
+namespace TagKit.Documents.Events
 {
     /// <summary>
     /// Represents a factory to create event data.

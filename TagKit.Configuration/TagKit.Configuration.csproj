@@ -63,7 +63,6 @@
     <Compile Include="Services\IDocumentFactory.cs" />
     <Compile Include="Services\IEncodingProvider.cs" />
     <Compile Include="Services\IEntityProvider.cs" />
-    <Compile Include="Services\IEventFactory.cs" />
     <Compile Include="Services\IServiceFactory.cs" />
     <Compile Include="Services\Scripting\IScriptingService.cs" />
     <Compile Include="Services\Scripting\ScriptOptions.cs" />

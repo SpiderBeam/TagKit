@@ -1,4 +1,6 @@
-﻿namespace TagKit.Configuration.Foundation
+﻿using TagKit.Documents.Events;
+
+namespace TagKit.Configuration.Foundation
 {
     /// <summary>
     /// Bundles the available factories.
@@ -20,10 +22,10 @@
         ///// </summary>
         //public static readonly SvgElementFactory SvgElements = new SvgElementFactory();
 
-        ///// <summary>
-        ///// The DOM events factory.
-        ///// </summary>
-        //public static readonly DefaultEventFactory Events = new DefaultEventFactory();
+        /// <summary>
+        /// The DOM events factory.
+        /// </summary>
+        public static readonly DefaultEventFactory Events = new DefaultEventFactory();
 
         ///// <summary>
         ///// The HTML input type provider factory.

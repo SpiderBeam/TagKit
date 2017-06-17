@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\CustomEvent.cs" />
+    <Compile Include="Events\DefaultEventFactory.cs" />
     <Compile Include="Events\EventTarget.cs" />
     <Compile Include="Events\EventTargetExtensions.cs" />
     <Compile Include="Events\FocusEvent.cs" />
+    <Compile Include="Events\IEventFactory.cs" />
     <Compile Include="Events\InteractivityEvent.cs" />
     <Compile Include="Events\KeyboardEvent.cs" />
     <Compile Include="Events\KeyboardLocation.cs" />
