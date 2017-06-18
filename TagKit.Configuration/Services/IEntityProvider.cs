@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TagKit.Services
+namespace TagKit.Configuration.Services
 {
     /// <summary>
     /// Defines methods to create a custom entity service.

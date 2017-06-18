@@ -1,7 +1,7 @@
 ﻿using System;
 using TagKit.Documents.Nodes;
 
-namespace TagKit.Services.Css
+namespace TagKit.Configuration.Services.Css
 {
     /// <summary>
     /// Transport object for evaluating stylesheets.

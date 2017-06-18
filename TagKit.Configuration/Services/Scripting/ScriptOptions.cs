@@ -2,7 +2,7 @@
 using TagKit.Documents.Nodes;
 using TagKit.Documents.Nodes.Html;
 
-namespace TagKit.Services.Scripting
+namespace TagKit.Configuration.Services.Scripting
 {
 
     /// <summary>

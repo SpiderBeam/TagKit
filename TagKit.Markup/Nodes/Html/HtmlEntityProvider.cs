@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using TagKit.Configuration.Services;
 using TagKit.Foundation.Common;
-using TagKit.Services;
 
 namespace TagKit.Markup.Nodes.Html
 {

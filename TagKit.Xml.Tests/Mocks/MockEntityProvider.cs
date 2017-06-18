@@ -1,5 +1,5 @@
 ﻿using System;
-using TagKit.Services;
+using TagKit.Configuration.Services;
 
 namespace TagKit.Xml.Tests.Mocks
 {

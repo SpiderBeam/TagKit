@@ -4,8 +4,6 @@ using TagKit.Configuration.Foundation;
 using TagKit.Documents;
 using TagKit.Documents.Html;
 using TagKit.Foundation;
-using TagKit.Markup.Nodes.Html;
-using TagKit.Xml.Parser;
 
 namespace TagKit.Configuration
 {
@@ -34,7 +32,7 @@ namespace TagKit.Configuration
             //Factory.PseudoClassSelector,
             //Factory.PseudoElementSelector,
             //Factory.Observer,
-            new Func<IBrowsingContext, IHtmlDocument>(ctx => new HtmlDocument(ctx)),
+            //new Func<IBrowsingContext, IHtmlDocument>(ctx => new HtmlDocument(ctx)),
             //new Func<IBrowsingContext, ICssSelectorParser>(ctx => new CssSelectorParser(ctx)),
             //new Func<IBrowsingContext, IHtmlParser>(ctx => new HtmlParser(ctx)),
             //new Func<IBrowsingContext, IXmlParser>(ctx => new XmlParser(ctx)),

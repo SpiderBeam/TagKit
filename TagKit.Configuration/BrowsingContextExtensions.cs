@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using TagKit.Configuration;
 using TagKit.Configuration.Foundation;
 using TagKit.Configuration.Services;
+using TagKit.Configuration.Services.Browser;
+using TagKit.Configuration.Services.Css;
+using TagKit.Configuration.Services.Scripting;
 using TagKit.Documents;
 using TagKit.Documents.Events;
 using TagKit.Documents.Net;
@@ -16,10 +19,6 @@ using TagKit.Documents.Nodes.Browser;
 using TagKit.Foundation;
 using TagKit.Foundation.Common;
 using TagKit.Foundation.Text;
-using TagKit.Services;
-using TagKit.Services.Browser;
-using TagKit.Services.Css;
-using TagKit.Services.Scripting;
 
 namespace TagKit.Markup.Nodes.Browser
 {

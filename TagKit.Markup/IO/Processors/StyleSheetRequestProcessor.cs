@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using TagKit.Configuration.Services.Css;
 using TagKit.Documents;
 using TagKit.Documents.Net;
 using TagKit.Documents.Nodes;
@@ -8,7 +9,6 @@ using TagKit.Documents.Nodes.Html;
 using TagKit.Foundation;
 using TagKit.Foundation.Text;
 using TagKit.Markup.Nodes.Browser;
-using TagKit.Services.Css;
 
 namespace TagKit.Markup.IO.Processors
 {

@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateDocumentOptions.cs" />
+    <Compile Include="Css\ISelector.cs" />
+    <Compile Include="Css\ISelectorVisitor.cs" />
+    <Compile Include="Css\Parser\ICssSelectorParser.cs" />
+    <Compile Include="Css\Priority.cs" />
     <Compile Include="Events\CustomEvent.cs" />
     <Compile Include="Events\DefaultEventFactory.cs" />
     <Compile Include="Events\EventTarget.cs" />

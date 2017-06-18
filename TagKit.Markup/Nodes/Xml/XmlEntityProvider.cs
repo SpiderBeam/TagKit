@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using TagKit.Services;
+using TagKit.Configuration.Services;
 
 namespace TagKit.Markup.Nodes.Xml
 {

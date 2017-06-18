@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace TagKit.Services.Browser
+namespace TagKit.Configuration.Services.Browser
 {
 
     /// <summary>

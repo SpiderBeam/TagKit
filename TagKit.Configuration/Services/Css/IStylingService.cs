@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using TagKit.Documents.Net;
 using TagKit.Documents.Nodes;
 
-namespace TagKit.Services.Css
+namespace TagKit.Configuration.Services.Css
 {
     /// <summary>
     /// Defines the API of an available engine for computing the stylesheet.

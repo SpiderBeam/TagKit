@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using TagKit.Configuration.Services.Scripting;
 using TagKit.Documents;
 using TagKit.Documents.Events;
 using TagKit.Documents.Net;
@@ -11,7 +12,6 @@ using TagKit.Markup.Events;
 using TagKit.Markup.Nodes;
 using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Nodes.Html;
-using TagKit.Services.Scripting;
 
 namespace TagKit.Markup.IO.Processors
 {

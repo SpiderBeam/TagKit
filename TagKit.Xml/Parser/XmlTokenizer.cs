@@ -1,9 +1,9 @@
 ﻿using System;
+using TagKit.Configuration.Services;
 using TagKit.Documents.Nodes.Html;
 using TagKit.Foundation;
 using TagKit.Foundation.Common;
 using TagKit.Foundation.Text;
-using TagKit.Services;
 using TagKit.Xml.Parser.Tokens;
 
 namespace TagKit.Xml.Parser

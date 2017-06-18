@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TagKit.Configuration;
 using TagKit.Configuration.Foundation;
+using TagKit.Configuration.Services;
 using TagKit.Documents;
 using TagKit.Documents.Html;
 using TagKit.Documents.Nodes;
@@ -13,7 +14,6 @@ using TagKit.Foundation.Text;
 using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Nodes.Mathml;
 using TagKit.Markup.Nodes.Svg;
-using TagKit.Services;
 
 namespace TagKit.Markup.Nodes.Html
 {

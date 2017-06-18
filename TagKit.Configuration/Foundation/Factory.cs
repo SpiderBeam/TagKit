@@ -1,5 +1,5 @@
-﻿using TagKit.Documents.Events;
-using TagKit.Markup;
+﻿using TagKit.Configuration.Services.Default;
+using TagKit.Documents.Events;
 
 namespace TagKit.Configuration.Foundation
 {

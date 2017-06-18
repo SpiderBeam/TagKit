@@ -1,7 +1,7 @@
 ﻿using System;
 using TagKit.Documents.Nodes.Browser;
 
-namespace TagKit.Services
+namespace TagKit.Configuration.Services
 {
     /// <summary>
     /// Represents a provider to get document commands.

@@ -11,7 +11,7 @@ using TagKit.Documents.Svg;
 using TagKit.Foundation;
 using TagKit.Markup.Nodes.Browser;
 
-namespace TagKit.Markup
+namespace TagKit.Configuration.Services.Default
 {
 
     /// <summary>

@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TagKit.Configuration;
 using TagKit.Configuration.Foundation;
+using TagKit.Configuration.Services;
 using TagKit.Documents;
 using TagKit.Documents.Nodes;
 using TagKit.Documents.Svg;
@@ -10,7 +11,6 @@ using TagKit.Foundation;
 using TagKit.Foundation.Text;
 using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Nodes.Xml;
-using TagKit.Services;
 using TagKit.Xml.Parser;
 
 namespace TagKit.Markup.Nodes.Svg

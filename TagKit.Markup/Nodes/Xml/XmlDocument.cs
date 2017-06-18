@@ -3,13 +3,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using TagKit.Configuration;
 using TagKit.Configuration.Foundation;
+using TagKit.Configuration.Services;
 using TagKit.Documents;
 using TagKit.Documents.Nodes;
 using TagKit.Documents.Nodes.Xml;
 using TagKit.Foundation;
 using TagKit.Foundation.Text;
 using TagKit.Markup.Nodes.Browser;
-using TagKit.Services;
 using TagKit.Xml.Parser;
 
 namespace TagKit.Markup.Nodes.Xml

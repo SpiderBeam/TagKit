@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TagKit.Documents.Net;
 
-namespace TagKit.Services.Scripting
+namespace TagKit.Configuration.Services.Scripting
 {
     /// <summary>
     /// Defines the API of an available engine for running scripts provided in
