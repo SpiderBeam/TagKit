@@ -5,8 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using TagKit.Configuration;
-using TagKit.Configuration.Services;
 using TagKit.Documents;
 using TagKit.Documents.Events;
 using TagKit.Documents.Html;
@@ -28,7 +26,6 @@ using TagKit.Markup.Nodes.Svg;
 using TagKit.Markup.Ranges;
 using TagKit.Markup.Traversal;
 using TagKit.Services;
-using TagKit.Services.Configuration;
 
 namespace TagKit.Markup.Nodes
 {

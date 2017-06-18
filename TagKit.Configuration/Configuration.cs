@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using TagKit.Configuration.Foundation;
 using TagKit.Documents;
+using TagKit.Documents.Html;
 using TagKit.Foundation;
+using TagKit.Markup.Nodes.Html;
+using TagKit.Xml.Parser;
 
 namespace TagKit.Configuration
 {
@@ -20,17 +23,18 @@ namespace TagKit.Configuration
 
         private static readonly Object[] standardServices = new Object[]
         {
+            Factory.Events,
+            Factory.Document,
             //Factory.HtmlElements,
             //Factory.MathElements,
             //Factory.SvgElements,
-            //Factory.Events,
             //Factory.InputTypes,
             //Factory.LinkRelations,
             //Factory.AttributeSelector,
             //Factory.PseudoClassSelector,
             //Factory.PseudoElementSelector,
-            //Factory.Document,
             //Factory.Observer,
+            new Func<IBrowsingContext, IHtmlDocument>(ctx => new HtmlDocument(ctx)),
             //new Func<IBrowsingContext, ICssSelectorParser>(ctx => new CssSelectorParser(ctx)),
             //new Func<IBrowsingContext, IHtmlParser>(ctx => new HtmlParser(ctx)),
             //new Func<IBrowsingContext, IXmlParser>(ctx => new XmlParser(ctx)),

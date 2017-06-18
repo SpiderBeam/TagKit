@@ -1,4 +1,7 @@
-﻿using TagKit.Foundation.Attributes;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using TagKit.Configuration.Foundation;
+using TagKit.Foundation.Attributes;
 
 namespace TagKit.Documents.Nodes.Xml
 {
@@ -9,5 +12,7 @@ namespace TagKit.Documents.Nodes.Xml
     [DomName("XMLDocument")]
     public interface IXmlDocument : IDocument
     {
+        Task<IDocument> LoadXmlAsync(IBrowsingContext context, CreateDocumentOptions options,
+            CancellationToken cancellationToken);
     }
 }

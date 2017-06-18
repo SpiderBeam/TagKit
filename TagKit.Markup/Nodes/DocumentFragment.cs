@@ -6,7 +6,6 @@ using TagKit.Documents.Nodes;
 using TagKit.Foundation;
 using TagKit.Foundation.Text;
 using TagKit.Markup.Nodes.Html;
-using TagKit.Services.Configuration;
 
 namespace TagKit.Markup.Nodes
 {

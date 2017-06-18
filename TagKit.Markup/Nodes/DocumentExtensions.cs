@@ -9,9 +9,9 @@ using TagKit.Documents.Nodes;
 using TagKit.Foundation;
 using TagKit.Foundation.Common;
 using TagKit.Foundation.Documents;
+using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Nodes.Html;
 using TagKit.Markup.Ranges;
-using TagKit.Services.Configuration;
 
 namespace TagKit.Markup.Nodes
 {

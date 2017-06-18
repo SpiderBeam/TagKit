@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using TagKit.Configuration;
 using TagKit.Documents.Html;
 using TagKit.Documents.Net;
 using TagKit.Documents.Nodes;
@@ -11,7 +10,7 @@ using TagKit.Documents.Nodes.Browser;
 using TagKit.Foundation.Common;
 using TagKit.Foundation.Text;
 using TagKit.Markup.IO.Processors;
-using TagKit.Services.Configuration;
+using TagKit.Markup.Nodes.Browser;
 
 namespace TagKit.Markup.Nodes
 {

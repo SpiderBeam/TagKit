@@ -4,29 +4,32 @@ using System.Threading;
 using System.Threading.Tasks;
 using TagKit.Configuration.Foundation;
 using TagKit.Documents;
+using TagKit.Documents.Html;
 using TagKit.Documents.Nodes;
+using TagKit.Documents.Nodes.Xml;
+using TagKit.Documents.Svg;
 using TagKit.Foundation;
-using TagKit.Markup.Foundation;
-using TagKit.Markup.Services;
+using TagKit.Markup.Nodes.Browser;
 
-namespace TagKit.Configuration.Services.Default
+namespace TagKit.Markup
 {
+
     /// <summary>
     /// Provides the default content-type to document creation mapping.
     /// </summary>
-    public class DocumentFactory : IDocumentFactory
+    public class DefaultDocumentFactory : IDocumentFactory
     {
         private readonly Dictionary<String, Creator> _creators = new Dictionary<String, Creator>
         {
-            { MimeTypeNames.Xml, XmlDocument.LoadAsync },
-            { MimeTypeNames.ApplicationXml, XmlDocument.LoadAsync },
-            { MimeTypeNames.Svg, SvgDocument.LoadAsync },
-            { MimeTypeNames.Html, HtmlDocument.LoadAsync },
-            { MimeTypeNames.ApplicationXHtml, HtmlDocument.LoadAsync },
-            { MimeTypeNames.Plain, HtmlDocument.LoadTextAsync },
-            { MimeTypeNames.ApplicationJson, HtmlDocument.LoadTextAsync },
-            { MimeTypeNames.DefaultJavaScript, HtmlDocument.LoadTextAsync },
-            { MimeTypeNames.Css, HtmlDocument.LoadTextAsync }
+            { MimeTypeNames.Xml, LoadXmlAsync },
+            { MimeTypeNames.ApplicationXml, LoadXmlAsync },
+            { MimeTypeNames.Svg, LoadSvgAsync },
+            { MimeTypeNames.Html, LoadHtmlAsync },
+            { MimeTypeNames.ApplicationXHtml, LoadHtmlAsync },
+            { MimeTypeNames.Plain, LoadTextAsync },
+            { MimeTypeNames.ApplicationJson, LoadTextAsync },
+            { MimeTypeNames.DefaultJavaScript, LoadTextAsync },
+            { MimeTypeNames.Css, LoadTextAsync }
         };
 
         /// <summary>
@@ -76,7 +79,7 @@ namespace TagKit.Configuration.Services.Default
         /// <returns>The task creating the document from the response.</returns>
         protected virtual Task<IDocument> CreateDefaultAsync(IBrowsingContext context, CreateDocumentOptions options, CancellationToken cancellationToken)
         {
-            return HtmlDocument.LoadAsync(context, options, cancellationToken);
+            return LoadHtmlAsync(context, options, cancellationToken);
         }
 
         /// <summary>
@@ -100,6 +103,34 @@ namespace TagKit.Configuration.Services.Default
             }
 
             return CreateDefaultAsync(context, options, cancellationToken);
+        }
+
+        private static Task<IDocument> LoadHtmlAsync(IBrowsingContext context, CreateDocumentOptions options, CancellationToken cancellationToken)
+        {
+            var document = context.GetProvider<IHtmlDocument>();
+            var result=document.LoadHtmlAsync(context, options, cancellationToken);
+            return result;
+        }
+
+        private static async Task<IDocument> LoadTextAsync(IBrowsingContext context, CreateDocumentOptions options, CancellationToken cancellationToken)
+        {
+            var document = context.GetProvider<IHtmlDocument>();
+            var result = await document.LoadTextAsync(context, options, cancellationToken);
+            return result;
+        }
+
+        private static Task<IDocument> LoadXmlAsync(IBrowsingContext context, CreateDocumentOptions options, CancellationToken cancellationToken)
+        {
+            var document = context.GetProvider<IXmlDocument>();
+            var result =  document.LoadXmlAsync(context, options, cancellationToken);
+            return result;
+        }
+
+        private static Task<IDocument> LoadSvgAsync(IBrowsingContext context, CreateDocumentOptions options, CancellationToken cancellationToken)
+        {
+            var document = context.GetProvider<ISvgDocument>();
+            var result = document.LoadSvgAsync(context, options, cancellationToken);
+            return result;
         }
     }
 }

@@ -63,7 +63,6 @@
     <Compile Include="IO\RequesterExtensions.cs" />
     <Compile Include="Nodes\Attr.cs" />
     <Compile Include="Nodes\AttrExtensions.cs" />
-    <Compile Include="Nodes\Browser\BrowsingContextExtensions.cs" />
     <Compile Include="Nodes\Browser\Location.cs" />
     <Compile Include="Nodes\Browser\Window.cs" />
     <Compile Include="Nodes\CharacterData.cs" />
@@ -118,7 +117,9 @@
     <Compile Include="Nodes\StringList.cs" />
     <Compile Include="Nodes\StyleExtensions.cs" />
     <Compile Include="Nodes\StyleSheetList.cs" />
+    <Compile Include="Nodes\Svg\SvgDocument.cs" />
     <Compile Include="Nodes\Svg\SvgElement.cs" />
+    <Compile Include="Nodes\Svg\SvgTitleElement.cs" />
     <Compile Include="Nodes\TextNode.cs" />
     <Compile Include="Nodes\Xml\XmlDocument.cs" />
     <Compile Include="Nodes\Xml\XmlElement.cs" />
@@ -136,18 +137,6 @@
       <Project>{04a35fc8-f68d-4016-bbd3-15e0f9d49fc3}</Project>
       <Name>TagKit.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TagKit.Documents.Css\TagKit.Documents.Css.csproj">
-      <Project>{F02ED499-3E52-4B84-8D7D-571A21154CF9}</Project>
-      <Name>TagKit.Documents.Css</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Documents.Html\TagKit.Documents.Html.csproj">
-      <Project>{B51BB2CC-BFEF-45C5-8A70-006BD443A01B}</Project>
-      <Name>TagKit.Documents.Html</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Documents.Svg\TagKit.Documents.Svg.csproj">
-      <Project>{34270E58-3A9D-4CF3-97A9-C1F602D61C43}</Project>
-      <Name>TagKit.Documents.Svg</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TagKit.Documents\TagKit.Documents.csproj">
       <Project>{1ADE238A-25E3-4F8D-A0B5-04FE068CFD3A}</Project>
       <Name>TagKit.Documents</Name>
@@ -155,10 +144,6 @@
     <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
       <Project>{5036A7D7-49AB-4184-BD14-E1805C664A17}</Project>
       <Name>TagKit.Foundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Services\TagKit.Services.csproj">
-      <Project>{E99DE8EC-42AC-45E4-B7C0-D1020C46DF81}</Project>
-      <Name>TagKit.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

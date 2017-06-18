@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateDocumentOptions.cs" />
     <Compile Include="Events\CustomEvent.cs" />
     <Compile Include="Events\DefaultEventFactory.cs" />
     <Compile Include="Events\EventTarget.cs" />
@@ -62,6 +63,20 @@
     <Compile Include="Events\UiEvent.cs" />
     <Compile Include="Events\WheelEvent.cs" />
     <Compile Include="Events\WheelMode.cs" />
+    <Compile Include="Html\IHtmlAreaElement.cs" />
+    <Compile Include="Html\IHtmlBodyElement.cs" />
+    <Compile Include="Html\IHtmlButtonElement.cs" />
+    <Compile Include="Html\IHtmlDataListElement.cs" />
+    <Compile Include="Html\IHtmlDocument.cs" />
+    <Compile Include="Html\IHtmlHtmlElement.cs" />
+    <Compile Include="Html\IHtmlMenuItemElement.cs" />
+    <Compile Include="Html\IHtmlOptionElement.cs" />
+    <Compile Include="Html\IHtmlSlotElement.cs" />
+    <Compile Include="Html\IHtmlTemplateElement.cs" />
+    <Compile Include="Html\IHtmlTitleElement.cs" />
+    <Compile Include="Html\IValidation.cs" />
+    <Compile Include="Html\IValidityState.cs" />
+    <Compile Include="IDocumentFactory.cs" />
     <Compile Include="Net\ICookieProvider.cs" />
     <Compile Include="Net\IDocumentLoader.cs" />
     <Compile Include="Net\ILoader.cs" />
@@ -83,6 +98,7 @@
     <Compile Include="Nodes\Html\HtmlLinkElementExtensions.cs" />
     <Compile Include="Nodes\Html\IHtmlLinkElement.cs" />
     <Compile Include="Nodes\Html\LinkRelNames.cs" />
+    <Compile Include="Nodes\Html\Parser\IHtmlParser.cs" />
     <Compile Include="Nodes\Html\TagNames.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="IMarkupFormattable.cs" />
@@ -186,6 +202,7 @@
     <Compile Include="Nodes\NodeType.cs" />
     <Compile Include="Nodes\ShadowRootMode.cs" />
     <Compile Include="Nodes\Xml\IXmlDocument.cs" />
+    <Compile Include="Nodes\Xml\IXmlParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ranges\IRange.cs" />
     <Compile Include="Ranges\RangePosition.cs" />
@@ -193,6 +210,10 @@
     <Compile Include="Sets\IBindable.cs" />
     <Compile Include="Sets\ISettableTokenList.cs" />
     <Compile Include="Sets\ITokenList.cs" />
+    <Compile Include="Svg\ISvgDocument.cs" />
+    <Compile Include="Svg\ISvgElement.cs" />
+    <Compile Include="Svg\ISvgSvgElement.cs" />
+    <Compile Include="Svg\ISvgTitleElement.cs" />
     <Compile Include="Traversal\FilterResult.cs" />
     <Compile Include="Traversal\FilterSettings.cs" />
     <Compile Include="Traversal\INodeIterator.cs" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace TagKit.Services
+namespace TagKit.Configuration.Services
 {
     /// <summary>
     /// Represents a service to determine the default encoding.

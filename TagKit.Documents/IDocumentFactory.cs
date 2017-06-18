@@ -1,10 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using TagKit.Configuration.Foundation;
-using TagKit.Documents;
 using TagKit.Documents.Nodes;
 
-namespace TagKit.Configuration.Services
+namespace TagKit.Documents
 {
     /// <summary>
     /// Represents the factory for creating documents from responses.

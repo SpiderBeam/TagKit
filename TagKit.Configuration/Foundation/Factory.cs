@@ -1,4 +1,5 @@
 ﻿using TagKit.Documents.Events;
+using TagKit.Markup;
 
 namespace TagKit.Configuration.Foundation
 {
@@ -7,6 +8,16 @@ namespace TagKit.Configuration.Foundation
     /// </summary>
     static class Factory
     {
+        /// <summary>
+        /// The DOM events factory.
+        /// </summary>
+        public static readonly DefaultEventFactory Events = new DefaultEventFactory();
+
+        /// <summary>
+        /// The document factory.
+        /// </summary>
+        public static readonly DefaultDocumentFactory Document = new DefaultDocumentFactory();
+
         ///// <summary>
         ///// The HTML element factory.
         ///// </summary>
@@ -22,10 +33,6 @@ namespace TagKit.Configuration.Foundation
         ///// </summary>
         //public static readonly SvgElementFactory SvgElements = new SvgElementFactory();
 
-        /// <summary>
-        /// The DOM events factory.
-        /// </summary>
-        public static readonly DefaultEventFactory Events = new DefaultEventFactory();
 
         ///// <summary>
         ///// The HTML input type provider factory.
@@ -52,10 +59,6 @@ namespace TagKit.Configuration.Foundation
         ///// </summary>
         //public static readonly DefaultLinkRelationFactory LinkRelations = new DefaultLinkRelationFactory();
 
-        ///// <summary>
-        ///// The document factory.
-        ///// </summary>
-        //public static readonly DefaultDocumentFactory Document = new DefaultDocumentFactory();
 
         ///// <summary>
         ///// The attribute observer.

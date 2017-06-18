@@ -1,5 +1,5 @@
 ﻿using System;
-using TagKit.Services.Configuration;
+using TagKit.Markup.Nodes.Browser;
 
 namespace TagKit.Markup.Nodes.Mathml
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using TagKit.Documents.Svg;
-using TagKit.Services.Configuration;
+using TagKit.Markup.Nodes.Browser;
 
 namespace TagKit.Markup.Nodes.Svg
 {

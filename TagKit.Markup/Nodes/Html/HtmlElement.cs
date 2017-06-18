@@ -6,8 +6,8 @@ using TagKit.Documents.Sets;
 using TagKit.Foundation;
 using TagKit.Foundation.Text;
 using TagKit.Markup.Events;
+using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Sets;
-using TagKit.Services.Configuration;
 
 namespace TagKit.Markup.Nodes.Html
 {

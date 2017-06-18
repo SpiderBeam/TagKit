@@ -44,7 +44,6 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parser\IXmlParser.cs" />
     <Compile Include="Parser\Tokens\XmlCDataToken.cs" />
     <Compile Include="Parser\Tokens\XmlCharacterToken.cs" />
     <Compile Include="Parser\Tokens\XmlCommentToken.cs" />
@@ -84,10 +83,6 @@
     <ProjectReference Include="..\TagKit.Markup\TagKit.Markup.csproj">
       <Project>{5EDB633D-65DB-4153-9C2B-2C93353FFE7B}</Project>
       <Name>TagKit.Markup</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Services\TagKit.Services.csproj">
-      <Project>{E99DE8EC-42AC-45E4-B7C0-D1020C46DF81}</Project>
-      <Name>TagKit.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

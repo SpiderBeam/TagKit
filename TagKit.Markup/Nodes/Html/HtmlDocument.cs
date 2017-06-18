@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using TagKit.Configuration;
+using TagKit.Configuration.Foundation;
 using TagKit.Documents;
 using TagKit.Documents.Html;
 using TagKit.Documents.Nodes;
+using TagKit.Documents.Nodes.Html;
+using TagKit.Documents.Nodes.Html.Parser;
 using TagKit.Foundation;
 using TagKit.Foundation.Text;
+using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Nodes.Mathml;
 using TagKit.Markup.Nodes.Svg;
 using TagKit.Services;
-using TagKit.Services.Configuration;
 
 namespace TagKit.Markup.Nodes.Html
 {
@@ -78,7 +83,32 @@ namespace TagKit.Markup.Nodes.Html
         {
             return CreateHtmlElement(name, prefix);
         }
-
+        public Task<IDocument> LoadHtmlAsync(IBrowsingContext context, CreateDocumentOptions options, CancellationToken cancellationToken)
+        {
+            var parser = context.GetService<IHtmlParser>();
+            var document = new HtmlDocument(context, options.Source);
+            document.Setup(options.Response, options.ContentType, options.ImportAncestor);
+            context.NavigateTo(document);
+            return parser.ParseDocumentAsync(document, cancellationToken);
+        }
+        public  async Task<IDocument> LoadTextAsync(IBrowsingContext context, CreateDocumentOptions options, CancellationToken cancellationToken)
+        {
+            var document = new HtmlDocument(context, options.Source);
+            document.Setup(options.Response, options.ContentType, options.ImportAncestor);
+            context.NavigateTo(document);
+            var root = document.CreateElement(TagNames.Html);
+            var head = document.CreateElement(TagNames.Head);
+            var body = document.CreateElement(TagNames.Body);
+            var pre = document.CreateElement(TagNames.Pre);
+            document.AppendChild(root);
+            root.AppendChild(head);
+            root.AppendChild(body);
+            body.AppendChild(pre);
+            pre.SetAttribute(AttributeNames.Style, "word-wrap: break-word; white-space: pre-wrap;");
+            await options.Source.PrefetchAllAsync(cancellationToken).ConfigureAwait(false);
+            pre.TextContent = options.Source.Text;
+            return document;
+        }
         #endregion
 
         #region Helpers

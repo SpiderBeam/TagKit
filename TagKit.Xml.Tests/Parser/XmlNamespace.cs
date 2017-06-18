@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NUnit.Framework;
 using TagKit.Configuration;
-using TagKit.Services.Configuration;
+using TagKit.Markup.Nodes.Browser;
 
 namespace TagKit.Xml.Tests.Parser
 {

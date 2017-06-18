@@ -16,11 +16,12 @@ using TagKit.Documents.Nodes.Browser;
 using TagKit.Foundation;
 using TagKit.Foundation.Common;
 using TagKit.Foundation.Text;
+using TagKit.Services;
 using TagKit.Services.Browser;
 using TagKit.Services.Css;
 using TagKit.Services.Scripting;
 
-namespace TagKit.Services.Configuration
+namespace TagKit.Markup.Nodes.Browser
 {
     /// <summary>
     /// A set of extensions for the browsing context.
@@ -78,7 +79,6 @@ namespace TagKit.Services.Configuration
         //}
 
         #endregion
-
         #region Languages
 
         /// <summary>
@@ -139,209 +139,6 @@ namespace TagKit.Services.Configuration
 
         #endregion
 
-        #region Spell Check
-
-        /// <summary>
-        /// Gets the spell check service for the given language, if any.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <param name="language">The language of the spellchecker.</param>
-        /// <returns>The spell check service, if any.</returns>
-        public static ISpellCheckService GetSpellCheck(this IBrowsingContext context, String language)
-        {
-            var substitute = default(ISpellCheckService);
-            var services = context.GetServices<ISpellCheckService>();
-            var culture = context.GetCultureFrom(language);
-            var twoLetters = culture.TwoLetterISOLanguageName;
-
-            foreach (var service in services)
-            {
-                var otherCulture = service.Culture;
-
-                if (otherCulture != null)
-                {
-                    var otherTwoLetters = otherCulture.TwoLetterISOLanguageName;
-
-                    if (otherCulture.Equals(culture))
-                    {
-                        return service;
-                    }
-                    else if (substitute == null && otherTwoLetters.Is(twoLetters))
-                    {
-                        substitute = service;
-                    }
-                }
-            }
-
-            return substitute;
-        }
-
-        #endregion
-
-        #region Cookies
-
-        /// <summary>
-        /// Gets the cookie for the given URL, if any.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <param name="url">The URL of the cookie.</param>
-        /// <returns>The cookie or the empty string.</returns>
-        public static String GetCookie(this IBrowsingContext context, Url url)
-        {
-            var provider = context.GetProvider<ICookieProvider>();
-            return provider?.GetCookie(url) ?? String.Empty;
-        }
-
-        /// <summary>
-        /// Sets the cookie for the given URL.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <param name="url">The URL of the cookie.</param>
-        /// <param name="value">The cookie value to set.</param>
-        public static void SetCookie(this IBrowsingContext context, Url url, String value)
-        {
-            var provider = context.GetProvider<ICookieProvider>();
-            provider?.SetCookie(url, value);
-        }
-
-        #endregion
-
-        #region Events
-
-        /// <summary>
-        /// Fires an interactive event at the given context.
-        /// </summary>
-        /// <typeparam name="T">The type of interactivity payload.</typeparam>
-        /// <param name="context">The current context.</param>
-        /// <param name="eventName">The name of the event to fire.</param>
-        /// <param name="data">The data to transport.</param>
-        /// <returns>The task with the response to the event.</returns>
-        public static Task InteractAsync<T>(this IBrowsingContext context, String eventName, T data)
-        {
-            var ev = new InteractivityEvent<T>(eventName, data);
-            context.Fire(ev);
-            return ev.Result ?? TaskEx.FromResult(false);
-        }
-
-        #endregion
-
-        #region Commands
-
-        /// <summary>
-        /// Tries to get the command with the given name.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <param name="commandId">The command to get.</param>
-        /// <returns>The command if any.</returns>
-        public static ICommand GetCommand(this IBrowsingContext context, String commandId)
-        {
-            var provider = context.GetProvider<ICommandProvider>();
-            return provider?.GetCommand(commandId);
-        }
-
-        #endregion
-
-        #region Parsing Scripts
-
-        /// <summary>
-        /// Gets if the context allows scripting or not.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <returns>True if a scripting provider is available, otherwise false.</returns>
-        public static Boolean IsScripting(this IBrowsingContext context)
-        {
-            return context.GetServices<IScriptingService>().Any();
-        }
-
-        /// <summary>
-        /// Tries to get the JavaScript service, if available.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <returns>The JavaScript scripting service, if any.</returns>
-        public static IScriptingService GetJsScripting(this IBrowsingContext context)
-        {
-            return context.GetScripting(MimeTypeNames.DefaultJavaScript);
-        }
-
-        /// <summary>
-        /// Tries to get the scripting service for the given mime-type.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <param name="type">The type of the scripting language.</param>
-        /// <returns>The scripting service, if any.</returns>
-        public static IScriptingService GetScripting(this IBrowsingContext context, String type)
-        {
-            var services = context.GetServices<IScriptingService>();
-
-            foreach (var service in services)
-            {
-                if (service.SupportsType(type))
-                {
-                    return service;
-                }
-            }
-
-            return default(IScriptingService);
-        }
-
-        #endregion
-
-        #region Downloads
-
-        /// <summary>
-        /// Checks if the context is waiting for tasks from originator of type
-        /// T to finish downloading.
-        /// </summary>
-        /// <param name="context">The context to use.</param>
-        /// <returns>Enumerable of awaitable tasks.</returns>
-        public static IEnumerable<Task> GetDownloads<T>(this IBrowsingContext context)
-            where T : INode
-        {
-            var loader = context.GetService<IResourceLoader>();
-
-            if (loader == null)
-            {
-                return Enumerable.Empty<Task>();
-            }
-
-            return loader.GetDownloads().Where(m => m.Source is T).Select(m => m.Task);
-        }
-
-        #endregion
-        #region Parsing Styles
-
-        /// <summary>
-        /// Tries to get the CSS styling service, if available.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <returns>The CSS styling service if any.</returns>
-        public static IStylingService GetCssStyling(this IBrowsingContext context)
-        {
-            return context.GetStyling(MimeTypeNames.Css);
-        }
-
-        /// <summary>
-        /// Tries to get the styling service for the given mime-type.
-        /// </summary>
-        /// <param name="context">The current context.</param>
-        /// <param name="type">The type of the style engine.</param>
-        /// <returns>The styling service if any.</returns>
-        public static IStylingService GetStyling(this IBrowsingContext context, String type)
-        {
-            var services = context.GetServices<IStylingService>();
-
-            foreach (var service in services)
-            {
-                if (service.SupportsType(type))
-                {
-                    return service;
-                }
-            }
-
-            return default(IStylingService);
-        }
-
-        #endregion
         #region Open
 
         /// <summary>
@@ -494,6 +291,221 @@ namespace TagKit.Services.Configuration
 
         #endregion
 
-    }
+        #region Navigate
 
+        /// <summary>
+        /// Navigates to the given document. Includes the document in the
+        /// session history and sets it as the active document.
+        /// </summary>
+        /// <param name="context">The browsing context to use.</param>
+        /// <param name="document">The new document.</param>
+        public static void NavigateTo(this IBrowsingContext context, IDocument document)
+        {
+            context.SessionHistory?.PushState(document, document.Title, document.Url);
+            context.Active = document;
+        }
+
+        #endregion
+        #region Cookies
+
+        /// <summary>
+        /// Gets the cookie for the given URL, if any.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <param name="url">The URL of the cookie.</param>
+        /// <returns>The cookie or the empty string.</returns>
+        public static String GetCookie(this IBrowsingContext context, Url url)
+        {
+            var provider = context.GetProvider<ICookieProvider>();
+            return provider?.GetCookie(url) ?? String.Empty;
+        }
+
+        /// <summary>
+        /// Sets the cookie for the given URL.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <param name="url">The URL of the cookie.</param>
+        /// <param name="value">The cookie value to set.</param>
+        public static void SetCookie(this IBrowsingContext context, Url url, String value)
+        {
+            var provider = context.GetProvider<ICookieProvider>();
+            provider?.SetCookie(url, value);
+        }
+
+        #endregion
+        #region Events
+
+        /// <summary>
+        /// Fires an interactive event at the given context.
+        /// </summary>
+        /// <typeparam name="T">The type of interactivity payload.</typeparam>
+        /// <param name="context">The current context.</param>
+        /// <param name="eventName">The name of the event to fire.</param>
+        /// <param name="data">The data to transport.</param>
+        /// <returns>The task with the response to the event.</returns>
+        public static Task InteractAsync<T>(this IBrowsingContext context, String eventName, T data)
+        {
+            var ev = new InteractivityEvent<T>(eventName, data);
+            context.Fire(ev);
+            return ev.Result ?? TaskEx.FromResult(false);
+        }
+
+        #endregion
+        #region Commands
+
+        /// <summary>
+        /// Tries to get the command with the given name.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <param name="commandId">The command to get.</param>
+        /// <returns>The command if any.</returns>
+        public static ICommand GetCommand(this IBrowsingContext context, String commandId)
+        {
+            var provider = context.GetProvider<ICommandProvider>();
+            return provider?.GetCommand(commandId);
+        }
+
+        #endregion
+        #region Downloads
+
+        /// <summary>
+        /// Checks if the context is waiting for tasks from originator of type
+        /// T to finish downloading.
+        /// </summary>
+        /// <param name="context">The context to use.</param>
+        /// <returns>Enumerable of awaitable tasks.</returns>
+        public static IEnumerable<Task> GetDownloads<T>(this IBrowsingContext context)
+            where T : INode
+        {
+            var loader = context.GetService<IResourceLoader>();
+
+            if (loader == null)
+            {
+                return Enumerable.Empty<Task>();
+            }
+
+            return loader.GetDownloads().Where(m => m.Source is T).Select(m => m.Task);
+        }
+
+        #endregion
+
+        #region Spell Check
+
+        /// <summary>
+        /// Gets the spell check service for the given language, if any.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <param name="language">The language of the spellchecker.</param>
+        /// <returns>The spell check service, if any.</returns>
+        public static ISpellCheckService GetSpellCheck(this IBrowsingContext context, String language)
+        {
+            var substitute = default(ISpellCheckService);
+            var services = context.GetServices<ISpellCheckService>();
+            var culture = context.GetCultureFrom(language);
+            var twoLetters = culture.TwoLetterISOLanguageName;
+
+            foreach (var service in services)
+            {
+                var otherCulture = service.Culture;
+
+                if (otherCulture != null)
+                {
+                    var otherTwoLetters = otherCulture.TwoLetterISOLanguageName;
+
+                    if (otherCulture.Equals(culture))
+                    {
+                        return service;
+                    }
+                    else if (substitute == null && otherTwoLetters.Is(twoLetters))
+                    {
+                        substitute = service;
+                    }
+                }
+            }
+
+            return substitute;
+        }
+
+        #endregion
+        #region Parsing Scripts
+
+        /// <summary>
+        /// Gets if the context allows scripting or not.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <returns>True if a scripting provider is available, otherwise false.</returns>
+        public static Boolean IsScripting(this IBrowsingContext context)
+        {
+            return context.GetServices<IScriptingService>().Any();
+        }
+
+        /// <summary>
+        /// Tries to get the JavaScript service, if available.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <returns>The JavaScript scripting service, if any.</returns>
+        public static IScriptingService GetJsScripting(this IBrowsingContext context)
+        {
+            return context.GetScripting(MimeTypeNames.DefaultJavaScript);
+        }
+
+        /// <summary>
+        /// Tries to get the scripting service for the given mime-type.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <param name="type">The type of the scripting language.</param>
+        /// <returns>The scripting service, if any.</returns>
+        public static IScriptingService GetScripting(this IBrowsingContext context, String type)
+        {
+            var services = context.GetServices<IScriptingService>();
+
+            foreach (var service in services)
+            {
+                if (service.SupportsType(type))
+                {
+                    return service;
+                }
+            }
+
+            return default(IScriptingService);
+        }
+
+        #endregion
+
+        #region Parsing Styles
+
+        /// <summary>
+        /// Tries to get the CSS styling service, if available.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <returns>The CSS styling service if any.</returns>
+        public static IStylingService GetCssStyling(this IBrowsingContext context)
+        {
+            return context.GetStyling(MimeTypeNames.Css);
+        }
+
+        /// <summary>
+        /// Tries to get the styling service for the given mime-type.
+        /// </summary>
+        /// <param name="context">The current context.</param>
+        /// <param name="type">The type of the style engine.</param>
+        /// <returns>The styling service if any.</returns>
+        public static IStylingService GetStyling(this IBrowsingContext context, String type)
+        {
+            var services = context.GetServices<IStylingService>();
+
+            foreach (var service in services)
+            {
+                if (service.SupportsType(type))
+                {
+                    return service;
+                }
+            }
+
+            return default(IStylingService);
+        }
+
+        #endregion
+
+    }
 }

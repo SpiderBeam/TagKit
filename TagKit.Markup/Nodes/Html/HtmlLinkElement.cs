@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TagKit.Documents.Net;
 using TagKit.Documents.Nodes;
 using TagKit.Documents.Nodes.Html;
 using TagKit.Documents.Sets;
 using TagKit.Foundation;
+using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Nodes.Html.LinkRels;
 using TagKit.Markup.Sets;
-using TagKit.Services.Configuration;
 
 namespace TagKit.Markup.Nodes.Html
 {

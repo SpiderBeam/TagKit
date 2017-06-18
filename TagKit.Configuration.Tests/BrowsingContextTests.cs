@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using TagKit.Services.Configuration;
+using TagKit.Markup.Nodes.Browser;
 
 namespace TagKit.Configuration.Tests
 {

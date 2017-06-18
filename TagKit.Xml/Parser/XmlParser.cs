@@ -10,8 +10,8 @@ using TagKit.Documents.Nodes.Xml;
 using TagKit.Foundation.Text;
 using TagKit.Markup.Events;
 using TagKit.Markup.Nodes;
+using TagKit.Markup.Nodes.Browser;
 using TagKit.Markup.Nodes.Xml;
-using TagKit.Services.Configuration;
 
 namespace TagKit.Xml.Parser
 {
