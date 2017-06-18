@@ -46,25 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrowsingContext.cs" />
-    <Compile Include="BrowsingContextExtensions.cs" />
-    <Compile Include="Configuration.cs" />
-    <Compile Include="ConfigurationExtensions.cs" />
-    <Compile Include="Foundation\Factory.cs" />
-    <Compile Include="Foundation\TaskEventLoop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Browser\ISpellCheckService.cs" />
-    <Compile Include="Services\Css\IStylingService.cs" />
-    <Compile Include="Services\Css\StyleOptions.cs" />
-    <Compile Include="Services\Default\DefaultDocumentFactory.cs" />
-    <Compile Include="Services\Default\EventFactory.cs" />
-    <Compile Include="Services\ICommandProvider.cs" />
-    <Compile Include="Services\IContextFactory.cs" />
-    <Compile Include="Services\IEncodingProvider.cs" />
-    <Compile Include="Services\IEntityProvider.cs" />
-    <Compile Include="Services\IServiceFactory.cs" />
-    <Compile Include="Services\Scripting\IScriptingService.cs" />
-    <Compile Include="Services\Scripting\ScriptOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TagKit.Documents\TagKit.Documents.csproj">

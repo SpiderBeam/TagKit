@@ -65,9 +65,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Mocks\MockEntityProvider.cs" />
-    <Compile Include="Parser\XmlNamespace.cs" />
-    <Compile Include="Parser\XmlTokenization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -46,49 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttributeNames.cs" />
-    <Compile Include="Attributes\Accessors.cs" />
-    <Compile Include="Attributes\DomAccessorAttribute.cs" />
-    <Compile Include="Attributes\DomConstructorAttribute.cs" />
-    <Compile Include="Attributes\DomDescriptionAttribute.cs" />
-    <Compile Include="Attributes\DomExposedAttribute.cs" />
-    <Compile Include="Attributes\DomHistoricalAttribute.cs" />
-    <Compile Include="Attributes\DomInitDictAttribute.cs" />
-    <Compile Include="Attributes\DomLenientThisAttribute.cs" />
-    <Compile Include="Attributes\DomLiteralsAttribute.cs" />
-    <Compile Include="Attributes\DomNameAttribute.cs" />
-    <Compile Include="Attributes\DomNoInterfaceObjectAttribute.cs" />
-    <Compile Include="Attributes\DomPutForwardsAttribute.cs" />
-    <Compile Include="BaseTokenizer.cs" />
-    <Compile Include="Common\ObjectExtensions.cs" />
-    <Compile Include="Common\PortableExtensions.cs" />
-    <Compile Include="Common\TaskEx.cs" />
-    <Compile Include="Css\Color.cs" />
-    <Compile Include="Css\Colors.cs" />
-    <Compile Include="Documents\DomError.cs" />
-    <Compile Include="Documents\DomException.cs" />
-    <Compile Include="Documents\IDomException.cs" />
-    <Compile Include="Documents\QuirksMode.cs" />
-    <Compile Include="Documents\Sandboxes.cs" />
-    <Compile Include="EventLoopExtensions.cs" />
-    <Compile Include="FunctionNames.cs" />
-    <Compile Include="ICancellable.cs" />
-    <Compile Include="IEventLoop.cs" />
-    <Compile Include="Keywords.cs" />
-    <Compile Include="MimeType.cs" />
-    <Compile Include="MimeTypeNames.cs" />
-    <Compile Include="StringBuilderPool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Symbols.cs" />
-    <Compile Include="TaskPriority.cs" />
-    <Compile Include="Text\CharExtensions.cs" />
-    <Compile Include="Text\StringExtensions.cs" />
-    <Compile Include="Text\TextEncoding.cs" />
-    <Compile Include="Text\TextPosition.cs" />
-    <Compile Include="Text\TextRange.cs" />
-    <Compile Include="Text\TextSource.cs" />
-    <Compile Include="Text\TextView.cs" />
-    <Compile Include="Text\XmlExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />

@@ -44,24 +44,6 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parser\Tokens\XmlCDataToken.cs" />
-    <Compile Include="Parser\Tokens\XmlCharacterToken.cs" />
-    <Compile Include="Parser\Tokens\XmlCommentToken.cs" />
-    <Compile Include="Parser\Tokens\XmlDeclarationToken.cs" />
-    <Compile Include="Parser\Tokens\XmlDoctypeToken.cs" />
-    <Compile Include="Parser\Tokens\XmlEndOfFileToken.cs" />
-    <Compile Include="Parser\Tokens\XmlPIToken.cs" />
-    <Compile Include="Parser\Tokens\XmlTagToken.cs" />
-    <Compile Include="Parser\Tokens\XmlToken.cs" />
-    <Compile Include="Parser\XmlDomBuilder.cs" />
-    <Compile Include="Parser\XmlParseError.cs" />
-    <Compile Include="Parser\XmlParseErrorExtensions.cs" />
-    <Compile Include="Parser\XmlParseException.cs" />
-    <Compile Include="Parser\XmlParser.cs" />
-    <Compile Include="Parser\XmlParserOptions.cs" />
-    <Compile Include="Parser\XmlTokenizer.cs" />
-    <Compile Include="Parser\XmlTokenType.cs" />
-    <Compile Include="Parser\XmlTreeMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
