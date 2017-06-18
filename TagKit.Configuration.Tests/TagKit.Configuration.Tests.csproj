@@ -72,10 +72,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TagKit.Configuration\TagKit.Configuration.csproj">
-      <Project>{04A35FC8-F68D-4016-BBD3-15E0F9D49FC3}</Project>
-      <Name>TagKit.Configuration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TagKit.Documents\TagKit.Documents.csproj">
       <Project>{1ade238a-25e3-4f8d-a0b5-04fe068cfd3a}</Project>
       <Name>TagKit.Documents</Name>

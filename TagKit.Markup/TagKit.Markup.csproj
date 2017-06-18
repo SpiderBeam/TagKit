@@ -44,17 +44,170 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Browser\IEventLoop.cs" />
+    <Compile Include="Browser\IHistory.cs" />
+    <Compile Include="Browser\ILocation.cs" />
+    <Compile Include="Browser\INavigator.cs" />
+    <Compile Include="Browser\INavigatorContentUtilities.cs" />
+    <Compile Include="Browser\INavigatorId.cs" />
+    <Compile Include="Browser\INavigatorOnline.cs" />
+    <Compile Include="Browser\INavigatorStorageUtilities.cs" />
+    <Compile Include="Browser\IWindow.cs" />
+    <Compile Include="Browser\IWindowTimers.cs" />
+    <Compile Include="Browser\Location.cs" />
+    <Compile Include="Browser\TaskPriority.cs" />
+    <Compile Include="Browser\Window.cs" />
+    <Compile Include="EventNames.cs" />
+    <Compile Include="Events\DomEventHandler.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\EventFlags.cs" />
+    <Compile Include="Events\EventPhase.cs" />
+    <Compile Include="Events\EventTarget.cs" />
+    <Compile Include="Events\EventTargetExtensions.cs" />
+    <Compile Include="Events\IEventTarget.cs" />
+    <Compile Include="Events\IGlobalEventHandlers.cs" />
+    <Compile Include="Events\IWindowEventHandlers.cs" />
+    <Compile Include="Events\MouseButton.cs" />
+    <Compile Include="Events\MouseButtons.cs" />
+    <Compile Include="Events\MouseEvent.cs" />
+    <Compile Include="Events\UiEvent.cs" />
+    <Compile Include="Html\ContentEditableMode.cs" />
+    <Compile Include="Html\FormDataSet.cs" />
+    <Compile Include="Html\Forms\FileDataSetEntry.cs" />
+    <Compile Include="Html\Forms\FormDataSetEntry.cs" />
+    <Compile Include="Html\Forms\IFormDataSetVisitor.cs" />
+    <Compile Include="Html\Forms\IFormSubmitter.cs" />
+    <Compile Include="Html\Forms\Submitters\JsonFormDataSetVisitor.cs" />
+    <Compile Include="Html\Forms\Submitters\Json\JsonArray.cs" />
+    <Compile Include="Html\Forms\Submitters\Json\JsonElement.cs" />
+    <Compile Include="Html\Forms\Submitters\Json\JsonObject.cs" />
+    <Compile Include="Html\Forms\Submitters\Json\JsonStep.cs" />
+    <Compile Include="Html\Forms\Submitters\Json\JsonValue.cs" />
+    <Compile Include="Html\Forms\Submitters\MultipartFormDataSetVisitor.cs" />
+    <Compile Include="Html\Forms\Submitters\PlaintextFormDataSetVisitor.cs" />
+    <Compile Include="Html\Forms\Submitters\UrlEncodedFormDataSetVisitor.cs" />
+    <Compile Include="Html\Forms\TextDataSetEntry.cs" />
+    <Compile Include="Html\HtmlDocument.cs" />
+    <Compile Include="Html\HtmlElement.cs" />
+    <Compile Include="Html\HtmlHtmlElement.cs" />
+    <Compile Include="Html\HtmlScriptElement.cs" />
+    <Compile Include="Html\IHtmlDataListElement.cs" />
+    <Compile Include="Html\IHtmlDocument.cs" />
+    <Compile Include="Html\IHtmlElement.cs" />
+    <Compile Include="Html\IHtmlEmbedElement.cs" />
+    <Compile Include="Html\IHtmlFormControlsCollection.cs" />
+    <Compile Include="Html\IHtmlFormElement.cs" />
+    <Compile Include="Html\IHtmlHeadElement.cs" />
+    <Compile Include="Html\IHtmlHtmlElement.cs" />
+    <Compile Include="Html\IHtmlImageElement.cs" />
+    <Compile Include="Html\IHtmlMenuElement.cs" />
+    <Compile Include="Html\IHtmlOptionElement.cs" />
+    <Compile Include="Html\IHtmlScriptElement.cs" />
+    <Compile Include="Html\IHtmlSlotElement.cs" />
+    <Compile Include="Html\IHtmlTemplateElement.cs" />
+    <Compile Include="Html\InputTypeNames.cs" />
+    <Compile Include="Html\IO\DocumentRequest.cs" />
+    <Compile Include="Html\IO\HeaderNames.cs" />
+    <Compile Include="Html\IO\IDownload.cs" />
+    <Compile Include="Html\IO\ILoadableElement.cs" />
+    <Compile Include="Html\IO\IResponse.cs" />
+    <Compile Include="Html\IStringMap.cs" />
+    <Compile Include="Html\SimpleChoice.cs" />
+    <Compile Include="Html\StringMap.cs" />
+    <Compile Include="IElementFactory.cs" />
+    <Compile Include="IEntityProvider.cs" />
+    <Compile Include="IO\IBlob.cs" />
+    <Compile Include="IO\IFile.cs" />
+    <Compile Include="IUrlUtilities.cs" />
+    <Compile Include="IBrowsingContext.cs" />
+    <Compile Include="IMarkupFormattable.cs" />
+    <Compile Include="Html\IHtmlAnchorElement.cs" />
+    <Compile Include="NamespaceNames.cs" />
+    <Compile Include="Nodes\AdjacentPosition.cs" />
+    <Compile Include="Nodes\Attr.cs" />
+    <Compile Include="Nodes\CharacterData.cs" />
+    <Compile Include="Nodes\CollectionExtensions.cs" />
+    <Compile Include="Nodes\Comment.cs" />
+    <Compile Include="Nodes\Document.cs" />
+    <Compile Include="Nodes\DocumentExtensions.cs" />
+    <Compile Include="Nodes\DocumentFragment.cs" />
+    <Compile Include="Nodes\DocumentPositions.cs" />
+    <Compile Include="Nodes\DocumentReadyState.cs" />
+    <Compile Include="Nodes\DocumentType.cs" />
+    <Compile Include="Nodes\DomImplementation.cs" />
+    <Compile Include="Nodes\Element.cs" />
+    <Compile Include="Nodes\ElementExtensions.cs" />
+    <Compile Include="Nodes\Entity.cs" />
+    <Compile Include="Nodes\HtmlAllCollection.cs" />
+    <Compile Include="Nodes\HtmlCollection.cs" />
+    <Compile Include="Nodes\IAttr.cs" />
+    <Compile Include="Nodes\IComment.cs" />
+    <Compile Include="Nodes\IMutationRecord.cs" />
+    <Compile Include="Nodes\INamedNodeMap.cs" />
+    <Compile Include="Nodes\INodeList.cs" />
+    <Compile Include="Nodes\IProcessingInstruction.cs" />
+    <Compile Include="Nodes\IText.cs" />
+    <Compile Include="Nodes\IXmlDocument.cs" />
+    <Compile Include="Nodes\MutationCallback.cs" />
+    <Compile Include="Nodes\MutationHost.cs" />
+    <Compile Include="Nodes\MutationObserver.cs" />
+    <Compile Include="Nodes\MutationRecord.cs" />
+    <Compile Include="Nodes\NamedNodeMap.cs" />
+    <Compile Include="Nodes\Node.cs" />
+    <Compile Include="Nodes\NodeEnumerable.cs" />
+    <Compile Include="Nodes\NodeExtensions.cs" />
+    <Compile Include="Nodes\NodeFlags.cs" />
+    <Compile Include="Nodes\NodeList.cs" />
+    <Compile Include="Nodes\NodeType.cs" />
+    <Compile Include="Nodes\Notation.cs" />
+    <Compile Include="Nodes\ParentNodeExtensions.cs" />
+    <Compile Include="Nodes\ShadowRootMode.cs" />
+    <Compile Include="Nodes\TextNode.cs" />
+    <Compile Include="Ranges\IRange.cs" />
+    <Compile Include="Ranges\Range.cs" />
+    <Compile Include="Ranges\RangePosition.cs" />
+    <Compile Include="Ranges\RangeType.cs" />
+    <Compile Include="Sets\ISettableTokenList.cs" />
+    <Compile Include="Sets\IStringList.cs" />
+    <Compile Include="Nodes\ICharacterData.cs" />
+    <Compile Include="Nodes\IChildNode.cs" />
+    <Compile Include="Css\ICssMedium.cs" />
+    <Compile Include="Nodes\IDocument.cs" />
+    <Compile Include="Nodes\IDocumentFragment.cs" />
+    <Compile Include="Nodes\IDocumentStyle.cs" />
+    <Compile Include="Nodes\IDocumentType.cs" />
+    <Compile Include="Nodes\IElement.cs" />
+    <Compile Include="Nodes\IHtmlAllCollection.cs" />
+    <Compile Include="Nodes\IHtmlCollection.cs" />
+    <Compile Include="Nodes\IImplementation.cs" />
+    <Compile Include="Nodes\IMarkupFormatter.cs" />
+    <Compile Include="Css\IMediaFeature.cs" />
+    <Compile Include="Css\IMediaList.cs" />
+    <Compile Include="Nodes\INode.cs" />
+    <Compile Include="Nodes\INonDocumentTypeChildNode.cs" />
+    <Compile Include="Nodes\INonElementParentNode.cs" />
+    <Compile Include="Nodes\IParentNode.cs" />
+    <Compile Include="Nodes\IShadowRoot.cs" />
+    <Compile Include="Nodes\IStyleFormattable.cs" />
+    <Compile Include="Nodes\IStyleFormatter.cs" />
+    <Compile Include="Nodes\IStyleSheet.cs" />
+    <Compile Include="Nodes\IStyleSheetList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sets\ITokenList.cs" />
+    <Compile Include="Sets\SettableTokenList.cs" />
+    <Compile Include="Sets\TokenList.cs" />
+    <Compile Include="TagNames.cs" />
+    <Compile Include="Traversal\FilterResult.cs" />
+    <Compile Include="Traversal\FilterSettings.cs" />
+    <Compile Include="Traversal\INodeIterator.cs" />
+    <Compile Include="Traversal\ITreeWalker.cs" />
+    <Compile Include="Traversal\NodeFilter.cs" />
+    <Compile Include="Traversal\NodeIterator.cs" />
+    <Compile Include="Traversal\TreeWalker.cs" />
+    <Compile Include="Xml\XmlDocument.cs" />
+    <Compile Include="Xml\XmlElement.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TagKit.Configuration\TagKit.Configuration.csproj">
-      <Project>{04a35fc8-f68d-4016-bbd3-15e0f9d49fc3}</Project>
-      <Name>TagKit.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Documents\TagKit.Documents.csproj">
-      <Project>{1ADE238A-25E3-4F8D-A0B5-04FE068CFD3A}</Project>
-      <Name>TagKit.Documents</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
       <Project>{5036A7D7-49AB-4184-BD14-E1805C664A17}</Project>
       <Name>TagKit.Foundation</Name>
@@ -63,5 +216,6 @@
   <ItemGroup>
     <None Include="Key.snk" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

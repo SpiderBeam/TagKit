@@ -43,17 +43,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TagKit.Configuration\TagKit.Configuration.csproj">
-      <Project>{04a35fc8-f68d-4016-bbd3-15e0f9d49fc3}</Project>
-      <Name>TagKit.Configuration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TagKit.Css\TagKit.Css.csproj">
       <Project>{8d32062f-4bd3-46a4-88cb-9b1bd6476d8d}</Project>
       <Name>TagKit.Css</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Documents\TagKit.Documents.csproj">
-      <Project>{1ade238a-25e3-4f8d-a0b5-04fe068cfd3a}</Project>
-      <Name>TagKit.Documents</Name>
     </ProjectReference>
     <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
       <Project>{5036a7d7-49ab-4184-bd14-e1805c664a17}</Project>
