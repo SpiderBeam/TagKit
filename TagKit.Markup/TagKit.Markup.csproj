@@ -89,6 +89,16 @@
     <Compile Include="Fundamental\Interface\Nodes\MutationObserver.cs" />
     <Compile Include="Fundamental\Interface\Nodes\MutationRecord.cs" />
     <Compile Include="Fundamental\Interface\Nodes\NodeType.cs" />
+    <Compile Include="Fundamental\Nodes\Attr.cs" />
+    <Compile Include="Fundamental\Nodes\Document.cs" />
+    <Compile Include="Fundamental\Nodes\DocumentType.cs" />
+    <Compile Include="Fundamental\Nodes\DomImplementation.cs" />
+    <Compile Include="Fundamental\Nodes\Element.cs" />
+    <Compile Include="Fundamental\Nodes\HtmlCollection.cs" />
+    <Compile Include="Fundamental\Nodes\NamedNodeMap.cs" />
+    <Compile Include="Fundamental\Nodes\Node.cs" />
+    <Compile Include="Fundamental\Nodes\XmlDocument.cs" />
+    <Compile Include="NamespaceNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fundamental\Interface\Ranges\IRange.cs" />
     <Compile Include="Fundamental\Interface\Ranges\RangePosition.cs" />
@@ -100,6 +110,7 @@
     <Compile Include="Fundamental\Interface\Traversal\INodeIterator.cs" />
     <Compile Include="Fundamental\Interface\Traversal\ITreeWalker.cs" />
     <Compile Include="Fundamental\Interface\Traversal\NodeFilter.cs" />
+    <Compile Include="TagNames.cs" />
     <Compile Include="Views\IParser.cs" />
   </ItemGroup>
   <ItemGroup>

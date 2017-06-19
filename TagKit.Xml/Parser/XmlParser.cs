@@ -6,6 +6,7 @@ using TagKit.Foundation.Text;
 using TagKit.Markup.Events;
 using TagKit.Markup.Fundamental.Events;
 using TagKit.Markup.Fundamental.Nodes;
+using TagKit.Xml.Events;
 
 namespace TagKit.Xml.Parser
 {
@@ -88,7 +89,7 @@ namespace TagKit.Xml.Parser
         public XmlParser(XmlParserOptions options, IBrowsingContext context)
         {
             _options = options;
-            //_context = context ?? BrowsingContext.NewFrom<IXmlParser>(this);
+            _context = context ?? BrowsingContext.NewFrom<IXmlParser>(this);
         }
 
         #endregion

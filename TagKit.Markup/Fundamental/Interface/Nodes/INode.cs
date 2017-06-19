@@ -1,7 +1,6 @@
 ﻿using System;
 using TagKit.Foundation.Attributes;
 using TagKit.Markup.Fundamental.Events;
-using TagKit.Markup.Fundamental;
 
 namespace TagKit.Markup.Fundamental.Nodes
 {

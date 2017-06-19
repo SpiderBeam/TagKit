@@ -1,4 +1,5 @@
 ﻿using System;
+using TagKit.Foundation.Text;
 using TagKit.Markup.Fundamental.Nodes;
 
 namespace TagKit.Xml.Parser
