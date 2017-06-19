@@ -32,10 +32,5 @@ namespace TagKit.Markup.Nodes
 		[DomName("wholeText")]
         String Text { get; }
 
-        /// <summary>
-        /// Gets the assigned slot of the current text, if any.
-        /// </summary>
-        [DomName("assignedSlot")]
-        IElement AssignedSlot { get; }
     }
 }
