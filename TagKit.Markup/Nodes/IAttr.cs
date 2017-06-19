@@ -10,24 +10,6 @@ namespace TagKit.Markup.Nodes
     public interface IAttr : IEquatable<IAttr>
     {
         /// <summary>
-        /// Gets the local name of the attribute.
-        /// </summary>
-        [DomName("localName")]
-        String LocalName { get; }
-
-        /// <summary>
-        /// Gets the attribute's name.
-        /// </summary>
-        [DomName("name")]
-        String Name { get; }
-
-        /// <summary>
-        /// Gets the attribute's value.
-        /// </summary>
-        [DomName("value")]
-        String Value { get; set; }
-
-        /// <summary>
         /// Gets the namespace URL of the attribute.
         /// </summary>
         [DomName("namespaceURI")]
@@ -38,5 +20,34 @@ namespace TagKit.Markup.Nodes
         /// </summary>
         [DomName("prefix")]
         String Prefix { get; }
+        /// <summary>
+        /// Gets the local name of the attribute.
+        /// </summary>
+        [DomName("localName")]
+        String LocalName { get; }
+
+        /// <summary>
+        /// Gets the attribute's name.
+        /// </summary>
+        [DomName("name")]
+        String Name { get; }
+        /// <summary>
+        /// For legacy use, alias of .Name.
+        /// </summary>
+        [DomName("name")]
+        String NodeName { get; }
+
+        /// <summary>
+        /// Gets the attribute's value.
+        /// </summary>
+        [DomName("value")]
+        String Value { get; set; }
+
+        /// <summary>
+        /// Useless; always returns true.
+        /// </summary>
+        [DomName("specified")]
+        Boolean Specified { get;}
+
     }
 }
