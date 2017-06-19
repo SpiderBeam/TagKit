@@ -60,5 +60,11 @@ namespace TagKit.Markup.Traversal
         /// <returns>The previous Node, if any.</returns>
         [DomName("previousNode")]
         INode Previous();
+        /// <summary>
+        /// Its functionality (disabling a NodeIterator object) was removed, but the method itself is preserved for compatibility.
+        /// </summary>
+        [DomName("detach")]
+        void Detach();
+
     }
 }
