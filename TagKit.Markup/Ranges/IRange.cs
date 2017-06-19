@@ -125,6 +125,19 @@ namespace TagKit.Markup.Ranges
         void SelectContent(INode refNode);
 
         /// <summary>
+        /// Compares the boundary points of the range.
+        /// </summary>
+        /// <param name="how">
+        /// Determines how these points should be compared.
+        /// </param>
+        /// <param name="sourceRange">
+        /// The range of the other boundary points.
+        /// </param>
+        /// <returns>A relative position.</returns>
+        [DomName("compareBoundaryPoints")]
+        RangePosition CompareBoundaryTo(RangeType how, IRange sourceRange);
+
+        /// <summary>
         /// Clears the contained nodes.
         /// </summary>
         [DomName("deleteContents")]
@@ -182,19 +195,6 @@ namespace TagKit.Markup.Ranges
         /// </returns>
         [DomName("isPointInRange")]
         Boolean Contains(INode node, Int32 offset);
-
-        /// <summary>
-        /// Compares the boundary points of the range.
-        /// </summary>
-        /// <param name="how">
-        /// Determines how these points should be compared.
-        /// </param>
-        /// <param name="sourceRange">
-        /// The range of the other boundary points.
-        /// </param>
-        /// <returns>A relative position.</returns>
-        [DomName("compareBoundaryPoints")]
-        RangePosition CompareBoundaryTo(RangeType how, IRange sourceRange);
 
         /// <summary>
         /// Compares the node to the given offset and returns the relative
