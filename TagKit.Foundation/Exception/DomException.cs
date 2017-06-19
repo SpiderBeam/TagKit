@@ -1,7 +1,7 @@
 ﻿using System;
 using TagKit.Foundation.Common;
 
-namespace TagKit.Foundation.Exception
+namespace TagKit.Fundamental.Exception
 {
     /// <summary>
     /// Represents a DOM exception.

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using TagKit.Markup.Common;
+using TagKit.Foundation.Text;
+using TagKit.Fundamental.Text;
 using TagKit.Markup.Fundamental.IO;
-using TagKit.Markup.Fundamental.Text;
+using StringExtensions = TagKit.Markup.Common.StringExtensions;
 
 namespace TagKit.Markup.Fundamental
 {
@@ -124,7 +123,7 @@ namespace TagKit.Markup.Fundamental
         {
             get
             {
-                if (_scheme.Is(ProtocolNames.Blob))
+                if (StringExtensions.Is(_scheme, ProtocolNames.Blob))
                 {
                     var url = new Url(_schemeData);
 
@@ -333,11 +332,11 @@ namespace TagKit.Markup.Fundamental
         /// </returns>
         public Boolean Equals(Url other)
         {
-            return _fragment.Is(other._fragment) && _query.Is(other._query) &&
-                _path.Is(other._path) && _scheme.Isi(other._scheme) &&
-                _port.Is(other._port) && _host.Isi(other._host) &&
-                _username.Is(other._username) && _password.Is(other._password) &&
-                _schemeData.Is(other._schemeData);
+            return StringExtensions.Is(_fragment, other._fragment) && StringExtensions.Is(_query, other._query) &&
+                StringExtensions.Is(_path, other._path) && StringExtensions.Isi(_scheme, other._scheme) &&
+                StringExtensions.Is(_port, other._port) && StringExtensions.Isi(_host, other._host) &&
+                StringExtensions.Is(_username, other._username) && StringExtensions.Is(_password, other._password) &&
+                StringExtensions.Is(_schemeData, other._schemeData);
         }
 
         #endregion
@@ -471,7 +470,7 @@ namespace TagKit.Markup.Fundamental
                         {
                             _relative = ProtocolNames.IsRelative(_scheme);
 
-                            if (_scheme.Is(ProtocolNames.File))
+                            if (StringExtensions.Is(_scheme, ProtocolNames.File))
                             {
                                 _host = String.Empty;
                                 _port = String.Empty;
@@ -484,7 +483,7 @@ namespace TagKit.Markup.Fundamental
                                 _path = String.Empty;
                                 return ParseSchemeData(input, index + 1);
                             }
-                            else if (_scheme.Is(originalScheme))
+                            else if (StringExtensions.Is(_scheme, originalScheme))
                             {
                                 c = input[++index];
 
@@ -578,14 +577,14 @@ namespace TagKit.Markup.Fundamental
 
                             if (c.IsOneOf(Symbols.Solidus, Symbols.ReverseSolidus))
                             {
-                                if (_scheme.Is(ProtocolNames.File))
+                                if (StringExtensions.Is(_scheme, ProtocolNames.File))
                                 {
                                     return ParseFileHost(input, index + 1);
                                 }
 
                                 return IgnoreSlashesState(input, index + 1);
                             }
-                            else if (_scheme.Is(ProtocolNames.File))
+                            else if (StringExtensions.Is(_scheme, ProtocolNames.File))
                             {
                                 _host = String.Empty;
                                 _port = String.Empty;
@@ -597,7 +596,7 @@ namespace TagKit.Markup.Fundamental
                         return ParsePath(input, index);
                 }
 
-                if (input[index].IsLetter() && _scheme.Is(ProtocolNames.File) && index + 1 < input.Length &&
+                if (input[index].IsLetter() && StringExtensions.Is(_scheme, ProtocolNames.File) && index + 1 < input.Length &&
                    (input[index + 1].IsOneOf(Symbols.Colon, Symbols.Solidus)) &&
                    (index + 2 == input.Length || input[index + 2].IsOneOf(Symbols.Solidus, Symbols.ReverseSolidus, Symbols.Num, Symbols.QuestionMark)))
                 {
@@ -879,7 +878,7 @@ namespace TagKit.Markup.Fundamental
                     }
                     else if (!path.Is(CurrentDirectory))
                     {
-                        if (_scheme.Is(ProtocolNames.File) &&
+                        if (StringExtensions.Is(_scheme, ProtocolNames.File) &&
                             paths.Count == originalCount &&
                             path.Length == 2 &&
                             path[0].IsLetter() &&

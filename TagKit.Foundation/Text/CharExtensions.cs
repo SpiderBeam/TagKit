@@ -1,10 +1,13 @@
-﻿namespace TagKit.Foundation.Text
-{
-    using System;
-#if !NET40
-    using System.Runtime.CompilerServices;
-#endif
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using TagKit.Fundamental.Text;
 
+namespace TagKit.Foundation.Text
+{
     /// <summary>
     /// Useful methods for chars.
     /// </summary>
@@ -84,7 +87,7 @@
         {
             return c.IsInRange(0x20, 0x7e) && c != Symbols.DoubleQuote &&
                 c != Symbols.CurvedQuote && c != Symbols.Num &&
-                c != Symbols.LessThan && c != Symbols.GreaterThan && 
+                c != Symbols.LessThan && c != Symbols.GreaterThan &&
                 c != Symbols.Space && c != Symbols.QuestionMark;
         }
 

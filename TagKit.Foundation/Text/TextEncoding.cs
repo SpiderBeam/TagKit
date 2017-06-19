@@ -1,9 +1,12 @@
-﻿namespace TagKit.Foundation.Text
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TagKit.Fundamental.Text;
 
+namespace TagKit.Foundation.Text
+{
     /// <summary>
     /// Various HTML encoding helpers.
     /// </summary>
@@ -396,7 +399,7 @@
             encodings.Add("cp866", i866);
             encodings.Add("csibm866", i866);
             encodings.Add("ibm866", i866);
-            
+
             encodings.Add("csisolatin2", Latin2);
             encodings.Add("iso-8859-2", Latin2);
             encodings.Add("iso-ir-101", Latin2);
@@ -406,7 +409,7 @@
             encodings.Add("iso_8859-2:1987", Latin2);
             encodings.Add("l2", Latin2);
             encodings.Add("latin2", Latin2);
-            
+
             encodings.Add("csisolatin3", Latin3);
             encodings.Add("iso-8859-3", Latin3);
             encodings.Add("iso-ir-109", Latin3);
@@ -416,7 +419,7 @@
             encodings.Add("iso_8859-3:1988", Latin3);
             encodings.Add("l3", Latin3);
             encodings.Add("latin3", Latin3);
-            
+
             encodings.Add("csisolatin4", Latin4);
             encodings.Add("iso-8859-4", Latin4);
             encodings.Add("iso-ir-110", Latin4);
@@ -426,7 +429,7 @@
             encodings.Add("iso_8859-4:1988", Latin4);
             encodings.Add("l4", Latin4);
             encodings.Add("latin4", Latin4);
-            
+
             encodings.Add("csisolatincyrillic", Latin5);
             encodings.Add("cyrillic", Latin5);
             encodings.Add("iso-8859-5", Latin5);
@@ -517,7 +520,7 @@
             encodings.Add("x-gbk", chinese);
             encodings.Add("hz-gb-2312", GetEncoding("hz-gb-2312"));
             encodings.Add("gb18030", Gb18030);
-            
+
             encodings.Add("big5", Big5);
             encodings.Add("big5-hkscs", Big5);
             encodings.Add("cn-big5", Big5);

@@ -44,39 +44,23 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\Accessors.cs" />
-    <Compile Include="Attributes\DomAccessorAttribute.cs" />
-    <Compile Include="Attributes\DomConstructorAttribute.cs" />
-    <Compile Include="Attributes\DomDescriptionAttribute.cs" />
-    <Compile Include="Attributes\DomExposedAttribute.cs" />
-    <Compile Include="Attributes\DomHistoricalAttribute.cs" />
-    <Compile Include="Attributes\DomInitDictAttribute.cs" />
-    <Compile Include="Attributes\DomLenientThisAttribute.cs" />
-    <Compile Include="Attributes\DomLiteralsAttribute.cs" />
-    <Compile Include="Attributes\DomNameAttribute.cs" />
-    <Compile Include="Attributes\DomNoInterfaceObjectAttribute.cs" />
-    <Compile Include="Attributes\DomPutForwardsAttribute.cs" />
     <Compile Include="Common\ObjectExtensions.cs" />
     <Compile Include="Common\PortableExtensions.cs" />
     <Compile Include="Common\StringExtensions.cs" />
+    <Compile Include="Events\EventNames.cs" />
+    <Compile Include="Events\EventTarget.cs" />
     <Compile Include="Fundamental\Interface\Events\CustomEvent.cs" />
     <Compile Include="Fundamental\Interface\Events\DomEventHandler.cs" />
     <Compile Include="Fundamental\Interface\Events\Event.cs" />
     <Compile Include="Fundamental\Interface\Events\EventFlags.cs" />
     <Compile Include="Fundamental\Interface\Events\EventPhase.cs" />
     <Compile Include="Fundamental\Interface\Events\IEventTarget.cs" />
-    <Compile Include="Fundamental\AttributeNames.cs" />
     <Compile Include="Fundamental\Interface\Exception\DomError.cs" />
     <Compile Include="Fundamental\Interface\Exception\DomException.cs" />
     <Compile Include="Fundamental\Interface\Exception\IDomException.cs" />
     <Compile Include="Fundamental\Interface\IO\PortNumbers.cs" />
     <Compile Include="Fundamental\Interface\IO\ProtocolNames.cs" />
     <Compile Include="Fundamental\Interface\IStringList.cs" />
-    <Compile Include="Fundamental\Text\CharExtensions.cs" />
-    <Compile Include="Fundamental\Text\Punycode.cs" />
-    <Compile Include="Fundamental\Text\StringBuilderPool.cs" />
-    <Compile Include="Fundamental\Text\Symbols.cs" />
-    <Compile Include="Fundamental\Text\TextEncoding.cs" />
     <Compile Include="Fundamental\Interface\Url.cs" />
     <Compile Include="Fundamental\Interface\Nodes\AdjacentPosition.cs" />
     <Compile Include="Fundamental\Interface\Nodes\DocumentPositions.cs" />
@@ -116,6 +100,7 @@
     <Compile Include="Fundamental\Interface\Traversal\INodeIterator.cs" />
     <Compile Include="Fundamental\Interface\Traversal\ITreeWalker.cs" />
     <Compile Include="Fundamental\Interface\Traversal\NodeFilter.cs" />
+    <Compile Include="Views\IParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
@@ -129,7 +114,6 @@
   <ItemGroup>
     <Folder Include="StyleSheets\" />
     <Folder Include="Validation\" />
-    <Folder Include="Views\" />
     <Folder Include="XPath\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

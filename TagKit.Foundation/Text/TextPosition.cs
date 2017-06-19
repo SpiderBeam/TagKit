@@ -1,7 +1,12 @@
-﻿namespace TagKit.Foundation.Text
-{
-    using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TagKit.Fundamental.Text;
 
+namespace TagKit.Foundation.Text
+{
     /// <summary>
     /// The position in the source code.
     /// </summary>
@@ -178,8 +183,8 @@
         /// </returns>
         public Boolean Equals(TextPosition other)
         {
-            return _position == other._position && 
-                   _column == other._column && 
+            return _position == other._position &&
+                   _column == other._column &&
                    _line == other._line;
         }
 

@@ -1,8 +1,9 @@
 ﻿using System;
 using TagKit.Foundation.Attributes;
 
-namespace TagKit.Foundation.Exception
+namespace TagKit.Fundamental.Exception
 {
+
     /// <summary>
     /// Defines how a DOMException should look like.
     /// </summary>
@@ -15,5 +16,4 @@ namespace TagKit.Foundation.Exception
         [DomName("code")]
         Int32 Code { get; }
     }
-
 }

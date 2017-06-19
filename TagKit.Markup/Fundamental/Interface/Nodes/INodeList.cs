@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using TagKit.Markup.Attributes;
+using TagKit.Foundation.Attributes;
 
 namespace TagKit.Markup.Fundamental.Nodes
 {

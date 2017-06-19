@@ -1,11 +1,14 @@
-﻿namespace TagKit.Foundation.Text
-{
-    using System;
-    using System.IO;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using TagKit.Fundamental.Text;
 
+namespace TagKit.Foundation.Text
+{
     /// <summary>
     /// A stream abstraction to handle encoding and more.
     /// </summary>
@@ -100,7 +103,7 @@
         public Encoding CurrentEncoding
         {
             get { return _encoding; }
-            set 
+            set
             {
                 if (_confidence != EncodingConfidence.Tentative)
                 {
@@ -361,7 +364,7 @@
                 offset = 4;
             }
 
-            if (offset > 0) 
+            if (offset > 0)
             {
                 count -= offset;
                 Array.Copy(_buffer, offset, _buffer, 0, count);

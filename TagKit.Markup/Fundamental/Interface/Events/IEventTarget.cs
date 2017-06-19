@@ -1,5 +1,5 @@
 ﻿using System;
-using TagKit.Markup.Attributes;
+using TagKit.Foundation.Attributes;
 
 namespace TagKit.Markup.Fundamental.Events
 {

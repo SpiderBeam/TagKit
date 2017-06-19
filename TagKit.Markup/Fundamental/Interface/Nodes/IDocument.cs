@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net;
-using TagKit.Markup.Attributes;
+using TagKit.Foundation.Attributes;
 using TagKit.Markup.Fundamental.Events;
 using TagKit.Markup.Fundamental.Ranges;
 using TagKit.Markup.Fundamental.Traversal;

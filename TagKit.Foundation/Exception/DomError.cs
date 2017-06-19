@@ -1,6 +1,6 @@
 ﻿using TagKit.Foundation.Attributes;
 
-namespace TagKit.Foundation.Exception
+namespace TagKit.Fundamental.Exception
 {
     /// <summary>
     /// A collection of official DOM error codes.

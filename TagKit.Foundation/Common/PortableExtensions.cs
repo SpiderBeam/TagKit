@@ -1,13 +1,14 @@
-﻿#if !NET40 && !SL50
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
 namespace TagKit.Foundation.Common
 {
-    using System;
-    using System.Linq;
-    using System.Reflection;
-    using System.Runtime.CompilerServices;
-    using System.Threading;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Extensions for ensuring code portability.
     /// </summary>
@@ -76,4 +77,3 @@ namespace TagKit.Foundation.Common
         }
     }
 }
-#endif

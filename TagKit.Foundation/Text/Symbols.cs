@@ -1,7 +1,7 @@
-﻿namespace TagKit.Foundation.Text
-{
-    using System;
+﻿using System;
 
+namespace TagKit.Fundamental.Text
+{
     /// <summary>
     /// Contains useful information from the specification.
     /// </summary>
@@ -197,15 +197,15 @@
         /// </summary>
 		public const Char SquareBracketClose = (Char)0x5d;
 
-		/// <summary>
-		/// The curly bracket open ( { ) character.
-		/// </summary>
-		public const Char CurlyBracketOpen = (Char)0x7b;
+        /// <summary>
+        /// The curly bracket open ( { ) character.
+        /// </summary>
+        public const Char CurlyBracketOpen = (Char)0x7b;
 
-		/// <summary>
-		/// The curly bracket close ( } ) character.
-		/// </summary>
-		public const Char CurlyBracketClose = (Char)0x7d;
+        /// <summary>
+        /// The curly bracket close ( } ) character.
+        /// </summary>
+        public const Char CurlyBracketClose = (Char)0x7d;
 
         /// <summary>
         /// The percent ( % ) character.

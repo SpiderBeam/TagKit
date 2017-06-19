@@ -1,20 +1,18 @@
-﻿using TagKit.Foundation.Attributes;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Text;
+using TagKit.Foundation.Attributes;
 using TagKit.Foundation.Browser;
-using TagKit.Foundation.Exception;
 using TagKit.Foundation.IO;
+using TagKit.Fundamental.Exception;
+using TagKit.Fundamental.Text;
 
 namespace TagKit.Foundation.Text
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.IO;
-    using System.Reflection;
-#if !NET40
-    using System.Runtime.CompilerServices;
-#endif
-    using System.Text;
-
     /// <summary>
     /// Useful methods for string objects.
     /// </summary>
@@ -340,7 +338,7 @@ namespace TagKit.Foundation.Text
 
             return false;
         }
-        
+
         /// <summary>
         /// Checks if two strings are exactly equal.
         /// </summary>

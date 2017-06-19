@@ -1,5 +1,5 @@
 ﻿using System;
-using TagKit.Markup.Attributes;
+using TagKit.Foundation.Attributes;
 using TagKit.Markup.Fundamental.Sets;
 
 namespace TagKit.Markup.Fundamental.Nodes

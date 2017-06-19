@@ -1,11 +1,12 @@
-﻿using TagKit.Foundation.Common;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TagKit.Foundation.Common;
 
 namespace TagKit.Foundation.Text
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// Represents a Punycode encoding helper class.
     /// </summary>
@@ -116,7 +117,7 @@ namespace TagKit.Foundation.Text
                     // Add a delimiter (-) if we had any basic code points (between basic and encoded pieces)
                     if (numBasicCodePoints > 0)
                     {
-                        output.Append(Text.Symbols.Minus);
+                        output.Append(TagKit.Fundamental.Text.Symbols.Minus);
                     }
 
                     // Initialize the state

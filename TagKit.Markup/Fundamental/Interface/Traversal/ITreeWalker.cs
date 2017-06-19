@@ -1,4 +1,4 @@
-﻿using TagKit.Markup.Attributes;
+﻿using TagKit.Foundation.Attributes;
 using TagKit.Markup.Fundamental.Nodes;
 
 namespace TagKit.Markup.Fundamental.Traversal

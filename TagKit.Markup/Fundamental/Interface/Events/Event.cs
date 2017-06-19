@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TagKit.Markup.Attributes;
+using TagKit.Foundation.Attributes;
 using TagKit.Markup.Fundamental.Nodes;
 
 namespace TagKit.Markup.Fundamental.Events
