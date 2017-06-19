@@ -11,6 +11,12 @@ namespace TagKit.Markup.Nodes
     public interface IElement : INode, IParentNode, IChildNode, INonDocumentTypeChildNode
     {
         /// <summary>
+        /// Gets the namespace URI of this element.
+        /// </summary>
+        [DomName("namespaceURI")]
+        String NamespaceUri { get; }
+
+        /// <summary>
         /// Gets the namespace prefix of this element.
         /// </summary>
         [DomName("prefix")]
@@ -21,30 +27,11 @@ namespace TagKit.Markup.Nodes
         /// </summary>
         [DomName("localName")]
         String LocalName { get; }
-
         /// <summary>
-        /// Gets the namespace URI of this element.
+        /// Gets the name of the tag that represents the current element.
         /// </summary>
-        [DomName("namespaceURI")]
-        String NamespaceUri { get; }
-
-        /// <summary>
-        /// Gets the sequence of associated attributes.
-        /// </summary>
-        [DomName("attributes")]
-        INamedNodeMap Attributes { get; }
-
-        /// <summary>
-        /// Gets the list of class names.
-        /// </summary>
-        [DomName("classList")]
-        ITokenList ClassList { get; }
-
-        /// <summary>
-        /// Gets or sets the value of the class attribute.
-        /// </summary>
-        [DomName("className")]
-        String ClassName { get; set; }
+        [DomName("tagName")]
+        String TagName { get; }
 
         /// <summary>
         /// Gets or sets the id value of the element.
@@ -53,48 +40,22 @@ namespace TagKit.Markup.Nodes
         String Id { get; set; }
 
         /// <summary>
-        /// Inserts new HTML elements specified by the given HTML string at
-        /// a position relative to the current element specified by the
-        /// position.
+        /// Gets or sets the value of the class attribute.
         /// </summary>
-        /// <param name="position">The relation to the current element.</param>
-        /// <param name="html">The HTML code to generate elements for.</param>
-        [DomName("insertAdjacentHTML")]
-        void Insert(AdjacentPosition position, String html);
+        [DomName("className")]
+        String ClassName { get; set; }
 
         /// <summary>
-        /// Returns a boolean value indicating whether the specified element
-        /// has the specified attribute or not.
+        /// Gets the list of class names.
         /// </summary>
-        /// <param name="name">The attributes name.</param>
-        /// <returns>The return value of true or false.</returns>
-        [DomName("hasAttribute")]
-        Boolean HasAttribute(String name);
+        [DomName("classList")]
+        ITokenList ClassList { get; }
 
         /// <summary>
-        /// Returns a boolean value indicating whether the specified element
-        /// has the specified attribute or not.
+        /// Gets the sequence of associated attributes.
         /// </summary>
-        /// <param name="namespaceUri">
-        /// A string specifying the namespace of the attribute.
-        /// </param>
-        /// <param name="localName">The attributes name.</param>
-        /// <returns>The return value of true or false.</returns>
-        [DomName("hasAttributeNS")]
-        Boolean HasAttribute(String namespaceUri, String localName);
-
-        /// <summary>
-        /// Returns the value of the named attribute on the specified element.
-        /// </summary>
-        /// <param name="name">
-        /// The name of the attribute whose value you want to get.
-        /// </param>
-        /// <returns>
-        /// If the named attribute does not exist, the value returned will be
-        /// null, otherwise the attribute's value.
-        /// </returns>
-        [DomName("getAttribute")]
-        String GetAttribute(String name);
+        [DomName("attributes")]
+        INamedNodeMap Attributes { get; }
 
         /// <summary>
         /// Returns the value of the named attribute on the specified element.
@@ -111,6 +72,19 @@ namespace TagKit.Markup.Nodes
         /// </returns>
         [DomName("getAttributeNS")]
         String GetAttribute(String namespaceUri, String localName);
+
+        /// <summary>
+        /// Returns the value of the named attribute on the specified element.
+        /// </summary>
+        /// <param name="name">
+        /// The name of the attribute whose value you want to get.
+        /// </param>
+        /// <returns>
+        /// If the named attribute does not exist, the value returned will be
+        /// null, otherwise the attribute's value.
+        /// </returns>
+        [DomName("getAttribute")]
+        String GetAttribute(String name);
 
         /// <summary>
         /// Adds a new attribute or changes the value of an existing attribute
@@ -133,7 +107,6 @@ namespace TagKit.Markup.Nodes
         /// <param name="value">The desired new value of the attribute.</param>
         [DomName("setAttributeNS")]
         void SetAttribute(String namespaceUri, String name, String value);
-
         /// <summary>
         /// Removes an attribute from the specified element.
         /// </summary>
@@ -158,16 +131,25 @@ namespace TagKit.Markup.Nodes
         Boolean RemoveAttribute(String namespaceUri, String localName);
 
         /// <summary>
-        /// Returns a set of elements which have all the given class names.
+        /// Returns a boolean value indicating whether the specified element
+        /// has the specified attribute or not.
         /// </summary>
-        /// <param name="classNames">
-        /// A string representing the list of class names to match; class names
-        /// are separated by whitespace.
-        /// </param>
-        /// <returns>A collection of elements.</returns>
-        [DomName("getElementsByClassName")]
-        IHtmlCollection<IElement> GetElementsByClassName(String classNames);
+        /// <param name="name">The attributes name.</param>
+        /// <returns>The return value of true or false.</returns>
+        [DomName("hasAttribute")]
+        Boolean HasAttribute(String name);
 
+        /// <summary>
+        /// Returns a boolean value indicating whether the specified element
+        /// has the specified attribute or not.
+        /// </summary>
+        /// <param name="namespaceUri">
+        /// A string specifying the namespace of the attribute.
+        /// </param>
+        /// <param name="localName">The attributes name.</param>
+        /// <returns>The return value of true or false.</returns>
+        [DomName("hasAttributeNS")]
+        Boolean HasAttribute(String namespaceUri, String localName);
         /// <summary>
         /// Returns a NodeList of elements with the given tag name. The
         /// complete document is searched, including the root node.
@@ -201,51 +183,15 @@ namespace TagKit.Markup.Nodes
         IHtmlCollection<IElement> GetElementsByTagNameNS(String namespaceUri, String tagName);
 
         /// <summary>
-        /// Checks if the element is matched by the given selector.
+        /// Returns a set of elements which have all the given class names.
         /// </summary>
-        /// <param name="selectors">Represents the selector to test.</param>
-        /// <returns>
-        /// True if the element would be selected by the specified selector,
-        /// otherwise false.
-        /// </returns>
-        [DomName("matches")]
-        Boolean Matches(String selectors);
+        /// <param name="classNames">
+        /// A string representing the list of class names to match; class names
+        /// are separated by whitespace.
+        /// </param>
+        /// <returns>A collection of elements.</returns>
+        [DomName("getElementsByClassName")]
+        IHtmlCollection<IElement> GetElementsByClassName(String classNames);
 
-        /// <summary>
-        /// Gets or sets the inner HTML (excluding the current element) of the
-        /// element.
-        /// </summary>
-        [DomName("innerHTML")]
-        String InnerHtml { get; set; }
-
-        /// <summary>
-        /// Gets or sets the outer HTML (including the current element) of the
-        /// element.
-        /// </summary>
-        [DomName("outerHTML")]
-        String OuterHtml { get; set; }
-
-        /// <summary>
-        /// Gets the name of the tag that represents the current element.
-        /// </summary>
-        [DomName("tagName")]
-        String TagName { get; }
-
-        /// <summary>
-        /// Gets the assigned slot of the current element, if any.
-        /// </summary>
-        [DomName("assignedSlot")]
-        IElement AssignedSlot { get; }
-
-        /// <summary>
-        /// Gets the value of the slot attribute.
-        /// </summary>
-        [DomName("slot")]
-        String Slot { get; set; }
-
-        /// <summary>
-        /// Gets if the element is currently focused.
-        /// </summary>
-        Boolean IsFocused { get; }
     }
 }
