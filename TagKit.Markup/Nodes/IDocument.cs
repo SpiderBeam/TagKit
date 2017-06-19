@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Net;
-using TagKit.Foundation.Attributes;
-using TagKit.Foundation.Text;
-using TagKit.Markup.Browser;
+using TagKit.Markup.Attributes;
 using TagKit.Markup.Events;
-using TagKit.Markup.Html;
 using TagKit.Markup.Ranges;
 using TagKit.Markup.Traversal;
 
@@ -15,20 +12,8 @@ namespace TagKit.Markup.Nodes
     /// content.
     /// </summary>
     [DomName("Document")]
-    public interface IDocument : INode, IParentNode, IGlobalEventHandlers, IDocumentStyle, INonElementParentNode, IDisposable
+    public interface IDocument : INode, IParentNode, INonElementParentNode, IDisposable
     {
-        /// <summary>
-        /// Gets a list of all elements in the document.
-        /// </summary>
-        [DomName("all")]
-        IHtmlAllCollection All { get; }
-
-        /// <summary>
-        /// Gets a list of all of the anchors in the document.
-        /// </summary>
-        [DomName("anchors")]
-        IHtmlCollection<IHtmlAnchorElement> Anchors { get; }
-
         /// <summary>
         /// Gets the DOM implementation associated with the current document.
         /// </summary>
@@ -374,38 +359,6 @@ namespace TagKit.Markup.Nodes
         DocumentReadyState ReadyState { get; }
 
         /// <summary>
-        /// Gets the current location of the document.
-        /// </summary>
-        [DomName("location")]
-        [DomPutForwards("href")]
-        ILocation Location { get; }
-
-        /// <summary>
-        /// Gets the forms in the document.
-        /// </summary>
-        [DomName("forms")]
-        IHtmlCollection<IHtmlFormElement> Forms { get; }
-
-        /// <summary>
-        /// Gets the images in the document.
-        /// </summary>
-        [DomName("images")]
-        IHtmlCollection<IHtmlImageElement> Images { get; }
-
-        /// <summary>
-        /// Gets the scripts in the document.
-        /// </summary>
-        [DomName("scripts")]
-        IHtmlCollection<IHtmlScriptElement> Scripts { get; }
-
-        /// <summary>
-        /// Gets a list of the embed elements within the current document.
-        /// </summary>
-        [DomName("embeds")]
-        [DomName("plugins")]
-        IHtmlCollection<IHtmlEmbedElement> Plugins { get; }
-
-        /// <summary>
         /// Gets a list of the commands (menu item, button, and link elements)
         /// within the current document.
         /// </summary>
@@ -424,18 +377,6 @@ namespace TagKit.Markup.Nodes
         /// </summary>
         [DomName("title")]
         String Title { get; set; }
-
-        /// <summary>
-        /// Gets or sets the head element.
-        /// </summary>
-        [DomName("head")]
-        IHtmlHeadElement Head { get; }
-
-        /// <summary>
-        /// Gets the body element.
-        /// </summary>
-        [DomName("body")]
-        IHtmlElement Body { get; set; }
 
         /// <summary>
         /// Gets or sets the document cookie.
@@ -474,19 +415,6 @@ namespace TagKit.Markup.Nodes
         /// </summary>
         [DomName("activeElement")]
         IElement ActiveElement { get; }
-
-        /// <summary>
-        /// Gets the script element which is currently being processed.
-        /// </summary>
-        [DomName("currentScript")]
-        IHtmlScriptElement CurrentScript { get; }
-
-        /// <summary>
-        /// Gets the window object associated with the document or null if none
-        /// available.
-        /// </summary>
-        [DomName("defaultView")]
-        IWindow DefaultView { get; }
 
         /// <summary>
         /// Checks if the document is currently focused.
@@ -562,28 +490,14 @@ namespace TagKit.Markup.Nodes
         String GetCommandValue(String commandId);
 
         /// <summary>
-        /// Gets the browsing context to use.
-        /// </summary>
-        IBrowsingContext Context { get; }
-
-        /// <summary>
         /// Gets the import ancestor, if any.
         /// </summary>
         IDocument ImportAncestor { get; }
-
-        /// <summary>
-        /// Gets the underlying source.
-        /// </summary>
-        TextSource Source { get; }
 
         /// <summary>
         /// Gets the status code of the server's response, if any.
         /// </summary>
         HttpStatusCode StatusCode { get; }
 
-        /// <summary>
-        /// Gets the associated entity provider.
-        /// </summary>
-        IEntityProvider Entities { get; }
     }
 }

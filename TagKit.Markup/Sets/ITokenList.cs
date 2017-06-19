@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 
 namespace TagKit.Markup.Sets
 {
+
     /// <summary>
     /// This type represents a set of space-separated tokens. 
     /// </summary>

@@ -1,5 +1,5 @@
 ﻿using System;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 using TagKit.Markup.Sets;
 
 namespace TagKit.Markup.Nodes
@@ -232,16 +232,6 @@ namespace TagKit.Markup.Nodes
         String TagName { get; }
 
         /// <summary>
-        /// Creates a new shadow root for the current element, if there is none
-        /// already.
-        /// </summary>
-        /// <param name="mode">The mode of the shadow root.</param>
-        /// <returns>The new shadow root.</returns>
-        [DomName("attachShadow")]
-        [DomInitDict]
-        IShadowRoot AttachShadow(ShadowRootMode mode = ShadowRootMode.Open);
-
-        /// <summary>
         /// Gets the assigned slot of the current element, if any.
         /// </summary>
         [DomName("assignedSlot")]
@@ -252,12 +242,6 @@ namespace TagKit.Markup.Nodes
         /// </summary>
         [DomName("slot")]
         String Slot { get; set; }
-
-        /// <summary>
-        /// Gets the shadow root of the current element, if any.
-        /// </summary>
-        [DomName("shadowRoot")]
-        IShadowRoot ShadowRoot { get; }
 
         /// <summary>
         /// Gets if the element is currently focused.

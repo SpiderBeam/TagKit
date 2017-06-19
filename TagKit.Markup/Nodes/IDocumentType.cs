@@ -1,8 +1,9 @@
 ﻿using System;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 
 namespace TagKit.Markup.Nodes
 {
+
     /// <summary>
     /// The DocumentType interface represents a Node containing a doctype.
     /// </summary>

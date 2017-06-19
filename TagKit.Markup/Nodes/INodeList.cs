@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 
 namespace TagKit.Markup.Nodes
 {
@@ -11,7 +8,7 @@ namespace TagKit.Markup.Nodes
     /// NodeList objects are collections of nodes.
     /// </summary>
     [DomName("NodeList")]
-    public interface INodeList : IEnumerable<INode>, IMarkupFormattable
+    public interface INodeList : IEnumerable<INode>
     {
         /// <summary>
         /// Returns an item in the list by its index, or throws an exception.

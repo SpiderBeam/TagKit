@@ -1,4 +1,4 @@
-﻿using TagKit.Foundation.Attributes;
+﻿using TagKit.Markup.Attributes;
 
 namespace TagKit.Markup.Nodes
 {
@@ -37,5 +37,4 @@ namespace TagKit.Markup.Nodes
         [DomName("remove")]
         void Remove();
     }
-
 }

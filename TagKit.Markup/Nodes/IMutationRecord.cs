@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 
 namespace TagKit.Markup.Nodes
 {

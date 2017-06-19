@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 using TagKit.Markup.Nodes;
 
 namespace TagKit.Markup.Events
@@ -213,7 +213,7 @@ namespace TagKit.Markup.Events
             _target = target;
 
             var eventPath = new List<IEventTarget>();
-            var parent = target as Node;
+            var parent = target as INode;
 
             if (parent != null)
             {

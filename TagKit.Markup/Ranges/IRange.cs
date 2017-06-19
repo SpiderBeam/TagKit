@@ -1,5 +1,5 @@
 ﻿using System;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 using TagKit.Markup.Nodes;
 
 namespace TagKit.Markup.Ranges

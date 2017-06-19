@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TagKit.Foundation.Attributes;
-using TagKit.Foundation.Exception;
+using TagKit.Markup.Attributes;
+using TagKit.Markup.Fundamental.Exception;
 
 namespace TagKit.Markup.Nodes
 {
@@ -152,22 +149,22 @@ namespace TagKit.Markup.Nodes
             }
         }
 
-        /// <summary>
-        /// Stops the MutationObserver instance from receiving
-        /// notifications of DOM mutations. Until the observe()
-        /// method is used again, observer's callback will not be invoked.
-        /// </summary>
-        [DomName("disconnect")]
-        public void Disconnect()
-        {
-            foreach (var observing in _observing)
-            {
-                var node = (Node)observing.Target;
-                node.Owner.Mutations.Unregister(this);
-            }
+        ///// <summary>
+        ///// Stops the MutationObserver instance from receiving
+        ///// notifications of DOM mutations. Until the observe()
+        ///// method is used again, observer's callback will not be invoked.
+        ///// </summary>
+        //[DomName("disconnect")]
+        //public void Disconnect()
+        //{
+        //    foreach (var observing in _observing)
+        //    {
+        //        var node = (INode)observing.Target;
+        //        node.Owner.Mutations.Unregister(this);
+        //    }
 
-            _records.Clear();
-        }
+        //    _records.Clear();
+        //}
 
         /// <summary>
         /// Registers the MutationObserver instance to receive notifications of
@@ -206,7 +203,7 @@ namespace TagKit.Markup.Nodes
         [DomInitDict(offset: 1)]
         public void Connect(INode target, Boolean childList = false, Boolean subtree = false, Boolean? attributes = null, Boolean? characterData = null, Boolean? attributeOldValue = null, Boolean? characterDataOldValue = null, IEnumerable<String> attributeFilter = null)
         {
-            var node = target as Node;
+            var node = target as INode;
 
             if (node == null)
             {
@@ -239,7 +236,7 @@ namespace TagKit.Markup.Nodes
             if (options.IsInvalid)
                 throw new DomException(DomError.Syntax);
 
-            node.Owner.Mutations.Register(this);
+            //node.Owner.Mutations.Register(this);
             var existing = this[target];
 
             if (existing != null)

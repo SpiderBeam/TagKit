@@ -1,8 +1,9 @@
 ﻿using System;
-using TagKit.Foundation.Attributes;
+using TagKit.Markup.Attributes;
 
 namespace TagKit.Markup.Traversal
 {
+
     /// <summary>
     /// The enumeration with the flags for setting the NodeIterator.
     /// </summary>
