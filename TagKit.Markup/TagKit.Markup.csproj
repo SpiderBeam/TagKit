@@ -37,24 +37,67 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\MarkupWriter.cs" />
+    <Compile Include="DomError.cs" />
+    <Compile Include="DomException.cs" />
+    <Compile Include="Dom\Attribute.cs" />
+    <Compile Include="Dom\CData.cs" />
+    <Compile Include="Dom\Comment.cs" />
+    <Compile Include="Dom\Container.cs" />
+    <Compile Include="Dom\Declaration.cs" />
+    <Compile Include="Dom\Document.cs" />
+    <Compile Include="Dom\DocumentType.cs" />
+    <Compile Include="Dom\Element.cs" />
+    <Compile Include="Dom\Hashtable.cs" />
+    <Compile Include="Dom\Helper.cs" />
+    <Compile Include="Dom\IEncodingProvider.cs" />
+    <Compile Include="Dom\IEntityProvider.cs" />
+    <Compile Include="Dom\LinkedNode.cs" />
+    <Compile Include="Dom\LocaleEncodingProvider.cs" />
+    <Compile Include="Dom\Markup.cs" />
+    <Compile Include="Dom\Name.cs" />
+    <Compile Include="Dom\Namespace.cs" />
+    <Compile Include="Dom\Node.cs" />
+    <Compile Include="Dom\NodeBuilder.cs" />
+    <Compile Include="Dom\Object.cs" />
+    <Compile Include="Dom\ProcessingInstruction.cs" />
+    <Compile Include="Dom\TagNames.cs" />
+    <Compile Include="Dom\Text.cs" />
+    <Compile Include="Events\DomEventHandler.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\EventFlags.cs" />
+    <Compile Include="Events\EventNames.cs" />
+    <Compile Include="Events\EventPhase.cs" />
+    <Compile Include="Events\EventTarget.cs" />
+    <Compile Include="Events\IEventTarget.cs" />
+    <Compile Include="Events\XmlParseEvent.cs" />
+    <Compile Include="IDomException.cs" />
+    <Compile Include="ILineInfo.cs" />
+    <Compile Include="Keywords.cs" />
+    <Compile Include="NodeType.cs" />
+    <Compile Include="Parser\AttributeNames.cs" />
+    <Compile Include="Parser\BaseTokenizer.cs" />
+    <Compile Include="Parser\IParser.cs" />
+    <Compile Include="Parser\StringBuilderPool.cs" />
+    <Compile Include="Parser\Symbols.cs" />
+    <Compile Include="Parser\TextEncoding.cs" />
+    <Compile Include="Parser\TextPosition.cs" />
+    <Compile Include="Parser\TextSource.cs" />
+    <Compile Include="PortableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
-      <Project>{5036A7D7-49AB-4184-BD14-E1805C664A17}</Project>
-      <Name>TagKit.Foundation</Name>
-    </ProjectReference>
+    <Compile Include="Serialization\IXmlSerializable.cs" />
+    <Compile Include="Text\CharExtensions.cs" />
+    <Compile Include="Text\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Schema\" />
+    <Folder Include="XPath\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

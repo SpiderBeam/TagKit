@@ -30,31 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TagKit.Css\TagKit.Css.csproj">
-      <Project>{8d32062f-4bd3-46a4-88cb-9b1bd6476d8d}</Project>
-      <Name>TagKit.Css</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
-      <Project>{5036a7d7-49ab-4184-bd14-e1805c664a17}</Project>
-      <Name>TagKit.Foundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TagKit.Markup\TagKit.Markup.csproj">
-      <Project>{5edb633d-65db-4153-9c2b-2c93353ffe7b}</Project>
-      <Name>TagKit.Markup</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
