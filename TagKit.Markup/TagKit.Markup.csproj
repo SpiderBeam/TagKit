@@ -44,74 +44,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\ObjectExtensions.cs" />
-    <Compile Include="Common\PortableExtensions.cs" />
-    <Compile Include="Common\StringExtensions.cs" />
-    <Compile Include="Events\EventNames.cs" />
-    <Compile Include="Events\EventTarget.cs" />
-    <Compile Include="Fundamental\Interface\Events\CustomEvent.cs" />
-    <Compile Include="Fundamental\Interface\Events\DomEventHandler.cs" />
-    <Compile Include="Fundamental\Interface\Events\Event.cs" />
-    <Compile Include="Fundamental\Interface\Events\EventFlags.cs" />
-    <Compile Include="Fundamental\Interface\Events\EventPhase.cs" />
-    <Compile Include="Fundamental\Interface\Events\IEventTarget.cs" />
-    <Compile Include="Fundamental\Interface\Exception\DomError.cs" />
-    <Compile Include="Fundamental\Interface\Exception\DomException.cs" />
-    <Compile Include="Fundamental\Interface\Exception\IDomException.cs" />
-    <Compile Include="Fundamental\Interface\IO\PortNumbers.cs" />
-    <Compile Include="Fundamental\Interface\IO\ProtocolNames.cs" />
-    <Compile Include="Fundamental\Interface\IStringList.cs" />
-    <Compile Include="Fundamental\Interface\Url.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\AdjacentPosition.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\DocumentPositions.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\DocumentReadyState.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IAttr.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\ICharacterData.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IComment.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IDocumentFragment.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IDocumentType.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IElement.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IImplementation.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IChildNode.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IDocument.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IHtmlCollection.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IMutationRecord.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\INamedNodeMap.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\INode.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\INodeList.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\INonDocumentTypeChildNode.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IParentNode.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\INonElementParentNode.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IProcessingInstruction.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IText.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\IXmlDocument.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\MutationCallback.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\MutationObserver.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\MutationRecord.cs" />
-    <Compile Include="Fundamental\Interface\Nodes\NodeType.cs" />
-    <Compile Include="Fundamental\Nodes\Attr.cs" />
-    <Compile Include="Fundamental\Nodes\Document.cs" />
-    <Compile Include="Fundamental\Nodes\DocumentType.cs" />
-    <Compile Include="Fundamental\Nodes\DomImplementation.cs" />
-    <Compile Include="Fundamental\Nodes\Element.cs" />
-    <Compile Include="Fundamental\Nodes\HtmlCollection.cs" />
-    <Compile Include="Fundamental\Nodes\NamedNodeMap.cs" />
-    <Compile Include="Fundamental\Nodes\Node.cs" />
-    <Compile Include="Fundamental\Nodes\XmlDocument.cs" />
-    <Compile Include="NamespaceNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Fundamental\Interface\Ranges\IRange.cs" />
-    <Compile Include="Fundamental\Interface\Ranges\RangePosition.cs" />
-    <Compile Include="Fundamental\Interface\Ranges\RangeType.cs" />
-    <Compile Include="Fundamental\Interface\Sets\ISettableTokenList.cs" />
-    <Compile Include="Fundamental\Interface\Sets\ITokenList.cs" />
-    <Compile Include="Fundamental\Interface\Traversal\FilterResult.cs" />
-    <Compile Include="Fundamental\Interface\Traversal\FilterSettings.cs" />
-    <Compile Include="Fundamental\Interface\Traversal\INodeIterator.cs" />
-    <Compile Include="Fundamental\Interface\Traversal\ITreeWalker.cs" />
-    <Compile Include="Fundamental\Interface\Traversal\NodeFilter.cs" />
-    <Compile Include="TagNames.cs" />
-    <Compile Include="Views\IParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TagKit.Foundation\TagKit.Foundation.csproj">
@@ -122,10 +55,6 @@
   <ItemGroup>
     <None Include="Key.snk" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StyleSheets\" />
-    <Folder Include="Validation\" />
-    <Folder Include="XPath\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
