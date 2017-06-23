@@ -1,4 +1,6 @@
-﻿namespace TagKit.Markup
+﻿using System;
+
+namespace TagKit.Markup
 {
     /// <summary>
     /// Provides methods for performing operations that are independent of any
@@ -29,6 +31,21 @@
         public virtual Document CreateDocument()
         {
             return new Document(this);
+        }
+        /// <summary>
+        /// Test if the DOM implementation implements a specific feature.
+        /// </summary>
+        /// <param name="strFeature"></param>
+        /// <param name="strVersion"></param>
+        /// <returns></returns>
+        public bool HasFeature(string strFeature, string strVersion)
+        {
+            if (String.Equals("XML", strFeature, StringComparison.OrdinalIgnoreCase))
+            {
+                if (strVersion == null || strVersion == "1.0" || strVersion == "2.0")
+                    return true;
+            }
+            return false;
         }
     }
 }
