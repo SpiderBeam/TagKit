@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TagKit.Markup
+namespace TagKit.Markup 
 {
-    class Reader
+    public enum TagSeverityType
     {
+        Error,
+        Warning
+
     }
 }

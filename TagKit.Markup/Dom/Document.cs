@@ -37,15 +37,15 @@ namespace TagKit.Markup
         /// <param name="xml"></param>
         public virtual void LoadXml(string xml)
         {
-            TextReader reader = SetupReader(new TextReader(new StringReader(xml), NameTable));
-            try
-            {
-                Load(reader);
-            }
-            finally
-            {
-                reader.Close();
-            }
+            //TextReader reader = SetupReader(new TextReader(new StringReader(xml), NameTable));
+            //try
+            //{
+            //    Load(reader);
+            //}
+            //finally
+            //{
+            //    reader.Close();
+            //}
         }
     }
 }

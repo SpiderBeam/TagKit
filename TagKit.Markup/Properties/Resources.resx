@@ -2404,7 +2404,7 @@
     <value>Cannot resolve entity reference '{0}'.</value>
   </data>
   <data name="Xml_CannotResolveEntityDtdIgnored" xml:space="preserve">
-    <value>Cannot resolve entity reference '{0}' because the DTD has been ignored. To enable DTD processing set the DtdProcessing property on XmlReaderSettings to Parse and pass the settings into XmlReader.Create method.</value>
+    <value>Cannot resolve entity reference '{0}' because the DTD has been ignored. To enable DTD processing set the DtdProcessing property on TagReaderSettings to Parse and pass the settings into XmlReader.Create method.</value>
   </data>
   <data name="Xml_CannotResolveExternalSubset" xml:space="preserve">
     <value>Cannot resolve external DTD subset - public ID = '{0}', system ID = '{1}'.</value>
@@ -2455,7 +2455,7 @@
     <value>DTD is prohibited in this XML document.</value>
   </data>
   <data name="Xml_DtdIsProhibitedEx" xml:space="preserve">
-    <value>For security reasons DTD is prohibited in this XML document. To enable DTD processing set the DtdProcessing property on XmlReaderSettings to Parse and pass the settings into XmlReader.Create method.</value>
+    <value>For security reasons DTD is prohibited in this XML document. To enable DTD processing set the DtdProcessing property on TagReaderSettings to Parse and pass the settings into XmlReader.Create method.</value>
   </data>
   <data name="Xml_DtdNotAllowedInFragment" xml:space="preserve">
     <value>DTD is not allowed in XML fragments.</value>
@@ -2554,7 +2554,7 @@
     <value>Fragment identifier '{0}' cannot be part of the system identifier '{1}'.</value>
   </data>
   <data name="Xml_IncompatibleConformanceLevel" xml:space="preserve">
-    <value>Cannot change conformance checking to {0}. Make sure the ConformanceLevel in XmlReaderSettings is set to Auto for wrapping scenarios.</value>
+    <value>Cannot change conformance checking to {0}. Make sure the ConformanceLevel in TagReaderSettings is set to Auto for wrapping scenarios.</value>
   </data>
   <data name="Xml_IncompleteDtdContent" xml:space="preserve">
     <value>Incomplete DTD content.</value>
@@ -2722,7 +2722,7 @@
     <value>Prefix '{0}' cannot be mapped to namespace name reserved for "xml" or "xmlns".</value>
   </data>
   <data name="Xml_NametableMismatch" xml:space="preserve">
-    <value>XmlReaderSettings.XmlNameTable must be the same name table as in XmlParserContext.NameTable or XmlParserContext.NamespaceManager.NameTable, or it must be null.</value>
+    <value>TagReaderSettings.XmlNameTable must be the same name table as in XmlParserContext.NameTable or XmlParserContext.NamespaceManager.NameTable, or it must be null.</value>
   </data>
   <data name="Xml_NoDTDPresent" xml:space="preserve">
     <value>No DTD found.</value>
@@ -2773,7 +2773,7 @@
     <value>Content cannot be converted to the type {0}.</value>
   </data>
   <data name="Xml_ReaderAsyncNotSetException" xml:space="preserve">
-    <value>Set XmlReaderSettings.Async to true if you want to use Async Methods.</value>
+    <value>Set TagReaderSettings.Async to true if you want to use Async Methods.</value>
   </data>
   <data name="Xml_ReadOnlyProperty" xml:space="preserve">
     <value>The '{0}' property is read only and cannot be set.</value>
