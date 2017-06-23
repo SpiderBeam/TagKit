@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace TagKit.Markup.Tests.TagImplementationTests
+namespace TagKit.Markup.Tests
 {
     public class HasFeatureTests
     {
