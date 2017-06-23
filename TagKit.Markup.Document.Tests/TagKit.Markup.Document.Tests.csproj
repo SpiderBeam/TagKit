@@ -58,14 +58,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentTests\LoadTests.cs" />
     <Compile Include="NodeTests\NextSiblingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DocumentTests\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TagKit.Markup\TagKit.Markup.csproj">
       <Project>{517668d7-1aa9-4426-b405-ac68c5bc01c6}</Project>
