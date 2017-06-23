@@ -1,104 +1,32 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 
 namespace TagKit.Markup
 {
-    /// <summary>
-    /// Represents a reader that provides fast, non-cached forward only stream access to Tag data. 
-    /// </summary>
-    [DebuggerDisplay("{debuggerDisplayProxy}")]
     public abstract partial class TagReader : IDisposable
     {
-        #region Constants
-
-        internal const int DefaultBufferSize = 4096;
-        internal const int BiggerBufferSize = 8192;
-        internal const int MaxStreamLengthForDefaultBufferSize = 64 * 1024; // 64kB
-
-        internal const int AsyncBufferSize = 64 * 1024; //64KB
-
-        #endregion
-        #region Implementation of IDisposable
-
-        public void Dispose()
+        #region Static methods for creating readers
+        /// <summary>
+        /// Creates an TagReader according for parsing Tag from the given stream.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static TagReader Create(Stream input)
         {
             throw new NotImplementedException();
         }
-
-
-        #endregion
-
-        #region Static methods for creating readers
         /// <summary>
-        /// Creates an TagReader for parsing Tag from the given Uri.
+        /// Creates an TagReader according for parsing Tag from the given TextReader.
         /// </summary>
-        /// <param name="inputUri"></param>
+        /// <param name="input"></param>
         /// <returns></returns>
-        public static TagReader Create(string inputUri)
-        {
-            return TagReader.Create(inputUri, (TagReaderSettings)null, (TagParserContext)null);
-        }
-        /// <summary>
-        /// Creates an TagReader according to the settings for parsing Tag from the given Uri.
-        /// </summary>
-        /// <param name="inputUri"></param>
-        /// <param name="settings"></param>
-        /// <returns></returns>
-        public static TagReader Create(string inputUri, TagReaderSettings settings)
-        {
-            return TagReader.Create(inputUri, settings, (TagParserContext)null);
-        }
-
-        public static TagReader Create(String inputUri, TagReaderSettings settings, TagParserContext inputContext)
-        {
-            if (settings == null)
-            {
-                settings = new TagReaderSettings();
-            }
-            return settings.CreateReader(inputUri, inputContext);
-        }
-
-        // Creates an XmlReader according for parsing XML from the given stream.
-        public static TagReader Create(Stream input)
-        {
-            return Create(input, (TagReaderSettings)null, (string)string.Empty);
-        }
-        // Creates an XmlReader according to the settings for parsing XML from the given stream.
-        public static TagReader Create(Stream input, TagReaderSettings settings)
-        {
-            return Create(input, settings, string.Empty);
-        }
-        // Creates an XmlReader according to the settings and base Uri for parsing XML from the given stream.
-        private static TagReader Create(Stream input, TagReaderSettings settings, String baseUri)
-        {
-            if (settings == null)
-            {
-                settings = new TagReaderSettings();
-            }
-            return settings.CreateReader(input, null, (string)baseUri, null);
-        }
-        // Creates an XmlReader according to the settings and parser context for parsing XML from the given stream.
-        public static TagReader Create(Stream input, TagReaderSettings settings, TagParserContext inputContext)
-        {
-            if (settings == null)
-            {
-                settings = new TagReaderSettings();
-            }
-            return settings.CreateReader(input, null, (string)string.Empty, inputContext);
-        }
-        // Creates an XmlReader according for parsing XML from the given TextReader.
         public static TagReader Create(TextReader input)
         {
             return Create(input, (TagReaderSettings)null, (string)string.Empty);
         }
-        // Creates an XmlReader according to the settings for parsing XML from the given TextReader.
-        public static TagReader Create(TextReader input, TagReaderSettings settings)
-        {
-            return Create(input, settings, string.Empty);
-        }
+
         // Creates an XmlReader according to the settings and baseUri for parsing XML from the given TextReader.
-        private static TagReader Create(TextReader input, TagReaderSettings settings, String baseUri)
+        public static TagReader Create(TextReader input, TagReaderSettings settings, String baseUri)
         {
             if (settings == null)
             {
@@ -106,50 +34,41 @@ namespace TagKit.Markup
             }
             return settings.CreateReader(input, baseUri, null);
         }
-        // Creates an XmlReader according to the settings and parser context for parsing XML from the given TextReader.
-        public static TagReader Create(TextReader input, TagReaderSettings settings, TagParserContext inputContext)
-        {
-            if (settings == null)
-            {
-                settings = new TagReaderSettings();
-            }
-            return settings.CreateReader(input, string.Empty, inputContext);
-        }
-        // Creates an XmlReader according to the settings wrapped over the given reader.
-        public static TagReader Create(TagReader reader, TagReaderSettings settings)
-        {
-            if (settings == null)
-            {
-                settings = new TagReaderSettings();
-            }
-            return settings.CreateReader(reader);
-        }
         #endregion
 
-        internal static int CalcBufferSize(Stream input)
+        #region MyRegion
+        /// <summary>
+        /// Closes the stream/TextReader (if CloseInput==true), changes the ReadState to Closed, and sets all the properties back to zero/empty string.
+        /// </summary>
+        public virtual void Close() { }
+
+        /// <summary>
+        /// Returns the read state of the TagReader.
+        /// </summary>
+        public abstract ReadState ReadState { get; }
+
+        /// <summary>
+        /// Moving through the Stream
+        /// Reads the next node from the stream.
+        /// </summary>
+        /// <returns></returns>
+        public abstract bool Read();
+
+        #endregion
+        #region Implementation of IDisposable
+
+        public void Dispose()
         {
-            // determine the size of byte buffer
-            int bufferSize = DefaultBufferSize;
-            if (input.CanSeek)
+            Dispose(true);
+        }
+        protected virtual void Dispose(bool disposing)
+        { //the boolean flag may be used by subclasses to differentiate between disposing and finalizing
+            if (disposing && ReadState != ReadState.Closed)
             {
-                long len = input.Length;
-                if (len < bufferSize)
-                {
-                    bufferSize = checked((int)len);
-                }
-                else if (len > MaxStreamLengthForDefaultBufferSize)
-                {
-                    bufferSize = BiggerBufferSize;
-                }
+                Close();
             }
-
-            // return the byte buffer size
-            return bufferSize;
         }
 
-        public void ReadAsync()
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
     }
 }

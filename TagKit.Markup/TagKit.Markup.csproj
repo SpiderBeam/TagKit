@@ -36,6 +36,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\ConformanceLevel.cs" />
+    <Compile Include="Core\TagTextReader.cs" />
+    <Compile Include="Core\TagTextReaderImpl.cs" />
     <Compile Include="DomNameTable.cs" />
     <Compile Include="Dom\ChildEnumerator.cs" />
     <Compile Include="Dom\ChildNodes.cs" />
@@ -47,8 +49,11 @@
     <Compile Include="Dom\NodeList.cs" />
     <Compile Include="Core\IncrementalReadDecoder.cs" />
     <Compile Include="Core\ReadState.cs" />
+    <Compile Include="ITagLineInfo.cs" />
+    <Compile Include="ITagNamespaceResolver.cs" />
     <Compile Include="NameTable.cs" />
     <Compile Include="Ref.cs" />
+    <Compile Include="Res.cs" />
     <Compile Include="Schema\TagSeverityType.cs" />
     <Compile Include="Core\NodeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,9 +65,13 @@
     <Compile Include="Core\WhitespaceHandling.cs" />
     <Compile Include="TagConst.cs" />
     <Compile Include="TagImplementation.cs" />
+    <Compile Include="Dom\TagLoader.cs" />
     <Compile Include="TagName.cs" />
     <Compile Include="TagNameHelper.cs" />
+    <Compile Include="TagNamespaceScope.cs" />
     <Compile Include="TagNameTable.cs" />
+    <Compile Include="TagReader.cs" />
+    <Compile Include="TagReaderSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

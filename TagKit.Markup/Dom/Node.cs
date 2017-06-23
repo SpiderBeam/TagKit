@@ -113,6 +113,105 @@ namespace TagKit.Markup
         {
             get;
         }
+
+        public virtual void RemoveAll()
+        {
+            Node child = FirstChild;
+            Node sibling = null;
+
+            while (child != null)
+            {
+                sibling = child.NextSibling;
+                RemoveChild(child);
+                child = sibling;
+            }
+        }
+        public virtual Node RemoveChild(Node oldChild)
+        {
+            //if (!IsContainer)
+            //    throw new InvalidOperationException(Res.GetString(Resources.Xdom_Node_Remove_Contain));
+
+            //if (oldChild.ParentNode != this)
+            //    throw new ArgumentException(Res.GetString(Resources.Xdom_Node_Remove_Child));
+
+            //LinkedNode oldNode = (LinkedNode)oldChild;
+
+            //string oldNodeValue = oldNode.Value;
+            //XmlNodeChangedEventArgs args = GetEventArgs(oldNode, this, null, oldNodeValue, oldNodeValue, XmlNodeChangedAction.Remove);
+
+            //if (args != null)
+            //    BeforeEvent(args);
+
+            //LinkedNode lastNode = LastNode;
+
+            //if (oldNode == FirstChild)
+            //{
+            //    if (oldNode == lastNode)
+            //    {
+            //        LastNode = null;
+            //        oldNode.next = null;
+            //        oldNode.SetParent(null);
+            //    }
+            //    else
+            //    {
+            //        LinkedNode nextNode = oldNode.next;
+
+            //        if (nextNode.IsText)
+            //        {
+            //            if (oldNode.IsText)
+            //            {
+            //                UnnestTextNodes(oldNode, nextNode);
+            //            }
+            //        }
+
+            //        lastNode.next = nextNode;
+            //        oldNode.next = null;
+            //        oldNode.SetParent(null);
+            //    }
+            //}
+            //else
+            //{
+            //    if (oldNode == lastNode)
+            //    {
+            //        LinkedNode prevNode = (LinkedNode)oldNode.PreviousSibling;
+            //        prevNode.next = oldNode.next;
+            //        LastNode = prevNode;
+            //        oldNode.next = null;
+            //        oldNode.SetParent(null);
+            //    }
+            //    else
+            //    {
+            //        LinkedNode prevNode = (LinkedNode)oldNode.PreviousSibling;
+            //        LinkedNode nextNode = oldNode.next;
+
+            //        if (nextNode.IsText)
+            //        {
+            //            if (prevNode.IsText)
+            //            {
+            //                NestTextNodes(prevNode, nextNode);
+            //            }
+            //            else
+            //            {
+            //                if (oldNode.IsText)
+            //                {
+            //                    UnnestTextNodes(oldNode, nextNode);
+            //                }
+            //            }
+            //        }
+
+            //        prevNode.next = nextNode;
+            //        oldNode.next = null;
+            //        oldNode.SetParent(null);
+            //    }
+            //}
+
+            //if (args != null)
+            //    AfterEvent(args);
+
+            //return oldChild;
+            return null;
+        }
+
         #region Implementation of IEnumerable
 
         /// <summary>

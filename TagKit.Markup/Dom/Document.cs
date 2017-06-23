@@ -33,6 +33,17 @@ namespace TagKit.Markup
         internal object objLock;
         internal static EmptyEnumerator EmptyEnumerator = new EmptyEnumerator();
 
+        // false if there are no ent-ref present, true if ent-ref nodes are or were present (i.e. if all ent-ref were removed, the doc will not clear this flag)
+        internal bool fEntRefNodesPresent;
+        internal bool fCDataNodesPresent;
+
+        private bool _preserveWhitespace;
+        private bool _isLoading;
+        //This variable represents the actual loading status. Since, IsLoading will
+        //be manipulated soemtimes for adding content to EntityReference this variable
+        //has been added which would always represent the loading status of document.
+        private bool actualLoadingStatus;
+
         public Document() : this(new TagImplementation())
         {
         }
@@ -101,24 +112,6 @@ namespace TagKit.Markup
             return null;
         }
         #endregion
-
-        /// <summary>
-        /// Loads the XML document from the specified string.
-        /// </summary>
-        /// <param name="xml"></param>
-        public virtual void LoadXml(string xml)
-        {
-            //TextReader reader = SetupReader(new TextReader(new StringReader(xml), NameTable));
-            //try
-            //{
-            //    Load(reader);
-            //}
-            //finally
-            //{
-            //    reader.Close();
-            //}
-        }
-
         #region Overrides of Node
         /// <summary>
         /// Gets the name of the node.
@@ -128,5 +121,43 @@ namespace TagKit.Markup
             get { return strDocumentName; }
         }
         #endregion
+        //Seam:DOM解析
+        public virtual void LoadXml(string xml)
+        {
+            TagReader reader = TagReader.Create(new StringReader(xml));
+            try
+            {
+                Load(reader);
+            }
+            finally
+            {
+                reader.Dispose();
+            }
+        }
+        public virtual void Load(TagReader reader)
+        {
+            try
+            {
+                IsLoading = true;
+                actualLoadingStatus = true;
+                RemoveAll();
+                fEntRefNodesPresent = false;
+                fCDataNodesPresent = false;
+
+                TagLoader loader = new TagLoader();
+                loader.Load(this, reader, _preserveWhitespace);
+            }
+            finally
+            {
+                IsLoading = false;
+                actualLoadingStatus = false;
+            }
+        }
+
+        internal bool IsLoading
+        {
+            get { return _isLoading; }
+            set { _isLoading = value; }
+        }
     }
 }
