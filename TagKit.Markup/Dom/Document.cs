@@ -118,5 +118,15 @@ namespace TagKit.Markup
             //    reader.Close();
             //}
         }
+
+        #region Overrides of Node
+        /// <summary>
+        /// Gets the name of the node.
+        /// </summary>
+        public override String Name
+        {
+            get { return strDocumentName; }
+        }
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using TagKit.Markup.Properties;
 
@@ -103,6 +104,14 @@ namespace TagKit.Markup
         public virtual Node PreviousSibling
         {
             get { return null; }
+        }
+
+        /// <summary>
+        /// Gets the name of the node.
+        /// </summary>
+        public abstract string Name
+        {
+            get;
         }
         #region Implementation of IEnumerable
 
