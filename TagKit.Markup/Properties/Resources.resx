@@ -2128,10 +2128,10 @@
     <value>{0}. {1} already has attributes.</value>
   </data>
   <data name="XmlMultipleXmlns" xml:space="preserve">
-    <value>Cannot serialize object of type '{0}' because it has multiple XmlNamespaceDeclarations attributes.</value>
+    <value>Cannot serialize object of type '{0}' because it has multiple TagNamespaceDeclarations attributes.</value>
   </data>
   <data name="XmlMultipleXmlnsMembers" xml:space="preserve">
-    <value>XmlNamespaceDeclarations may not be used on multiple parameters or return values.</value>
+    <value>TagNamespaceDeclarations may not be used on multiple parameters or return values.</value>
   </data>
   <data name="XmlNeedAttributeHere" xml:space="preserve">
     <value>The node must be either type XmlAttribute or a derived type.</value>
@@ -2200,7 +2200,7 @@
     <value>Multiple accessors are not supported with rpc\literal SOAP, you may use the following attributes: XmlArray, XmlArrayItem, or single XmlElement.</value>
   </data>
   <data name="XmlRpcLitXmlns" xml:space="preserve">
-    <value>Input or output values of an rpc\literal method cannot have an XmlNamespaceDeclarations attribute (member '{0}').</value>
+    <value>Input or output values of an rpc\literal method cannot have an TagNamespaceDeclarations attribute (member '{0}').</value>
   </data>
   <data name="XmlRpcNestedValueType" xml:space="preserve">
     <value>Cannot serialize {0}. Nested structs are not supported with encoded SOAP.</value>
@@ -2287,7 +2287,7 @@
     <value>{0} is an unsupported type. Please use [XmlIgnore] attribute to exclude members of this type from serialization graph.</value>
   </data>
   <data name="XmlSoleXmlnsAttribute" xml:space="preserve">
-    <value>XmlNamespaceDeclarations attribute cannot be used in conjunction with any other custom attributes.</value>
+    <value>TagNamespaceDeclarations attribute cannot be used in conjunction with any other custom attributes.</value>
   </data>
   <data name="XmlTypeInaccessible" xml:space="preserve">
     <value>{0} is inaccessible due to its protection level. Only public types can be processed.</value>
@@ -2362,7 +2362,7 @@
     <value>The type {0} was not expected. Use the XmlInclude or SoapInclude attribute to specify types that are not known statically.</value>
   </data>
   <data name="XmlXmlnsInvalidType" xml:space="preserve">
-    <value>Cannot use XmlNamespaceDeclarations attribute on member '{0}' of type {1}.  This attribute is only valid on members of type {2}.</value>
+    <value>Cannot use TagNamespaceDeclarations attribute on member '{0}' of type {1}.  This attribute is only valid on members of type {2}.</value>
   </data>
   <data name="Xml_AsyncIsRunningException" xml:space="preserve">
     <value>An asynchronous operation is already in progress.</value>
@@ -2722,7 +2722,7 @@
     <value>Prefix '{0}' cannot be mapped to namespace name reserved for "xml" or "xmlns".</value>
   </data>
   <data name="Xml_NametableMismatch" xml:space="preserve">
-    <value>TagReaderSettings.XmlNameTable must be the same name table as in XmlParserContext.NameTable or XmlParserContext.NamespaceManager.NameTable, or it must be null.</value>
+    <value>TagReaderSettings.TagNameTable must be the same name table as in XmlParserContext.NameTable or XmlParserContext.NamespaceManager.NameTable, or it must be null.</value>
   </data>
   <data name="Xml_NoDTDPresent" xml:space="preserve">
     <value>No DTD found.</value>
