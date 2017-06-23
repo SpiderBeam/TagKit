@@ -61,6 +61,7 @@
     <Compile Include="NodeTests\NextSiblingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagImplementationTests\CreateDocumentTests.cs" />
+    <Compile Include="TagImplementationTests\HasFeatureTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
