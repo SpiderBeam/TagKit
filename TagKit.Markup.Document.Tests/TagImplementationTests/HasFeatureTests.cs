@@ -14,6 +14,11 @@ namespace TagKit.Markup.Tests.TagImplementationTests
             Assert.True(target.HasFeature(SupportedFeature.ToUpper(), null));
             Assert.True(target.HasFeature(SupportedFeature.ToLower(), null));
         }
-
+        [Fact]
+        public static void HasFeatureReturnsFalseForUnsupportedFeature()
+        {
+            var target = new TagImplementation();
+            Assert.False(target.HasFeature("Unsupported", null));
+        }
     }
 }
