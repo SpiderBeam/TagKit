@@ -20,5 +20,13 @@ namespace TagKit.Markup.Tests.TagImplementationTests
             var target = new TagImplementation();
             Assert.False(target.HasFeature("Unsupported", null));
         }
+        [Fact]
+        public static void HasFeatureReturnsTrueForSupportedVersion()
+        {
+            var target = new TagImplementation();
+            Assert.True(target.HasFeature(SupportedFeature, null));
+            Assert.True(target.HasFeature(SupportedFeature, "1.0"));
+            Assert.True(target.HasFeature(SupportedFeature, "2.0"));
+        }
     }
 }
